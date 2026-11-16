@@ -1,0 +1,26 @@
+[package]
+name = "squint"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sergei L. Kosakovsky Pond <spond@temple.edu>"]
+description = "SQUINT: Scale-Quotiented Unaligned-Interval Network Transducer — Non-Circular MDL Multi-Scale Sequence Homology & Provenance Engine"
+license = "MIT"
+
+[lib]
+name = "squint"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "squint"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

@@ -1,0 +1,4351 @@
+{
+  "mode": "Codon",
+  "num_sequences": 25,
+  "raw_null_cohort_nats": 13855.571992990035,
+  "provenance_cohort_nats": 5420.058904132087,
+  "net_cohort_gain_nats": 8435.513088857948,
+  "num_homology_components": 1,
+  "components": [
+    {
+      "component_id": 0,
+      "sequence_ids": [
+        "RUFESCENS",
+        "SORENSENI",
+        "WALALLENSIS",
+        "KAMTSCHATKANA",
+        "SIEBOLDII",
+        "DISCUS_HANNAI",
+        "GIGANTEA",
+        "CORRUGATA",
+        "CRACHERODII",
+        "FULGENS",
+        "ROEI",
+        "SCALARIS",
+        "LAEVIGATA",
+        "CYCLOBATES",
+        "RUBRA",
+        "CONICOPORA",
+        "PUSTULATA",
+        "MIDAE",
+        "OVINA",
+        "DIVERSICOLOR",
+        "VARIA",
+        "AUSTRALIS",
+        "TUBERCULATA",
+        "COCCINEA",
+        "IRIS"
+      ],
+      "newick_tree": "(AUSTRALIS:0.06896,(((OVINA:0.05614,VARIA:0.10624):0.07042,((FULGENS:0.14761,((WALALLENSIS:0.04166,(SORENSENI:0.02343,(RUFESCENS:0.02616,KAMTSCHATKANA:0.03792):0.00490):0.01431):0.03321,((SIEBOLDII:0.02547,(DISCUS_HANNAI:0.00176,GIGANTEA:0.00067):0.03349):0.04106,(CORRUGATA:0.06265,CRACHERODII:0.07321):0.00357):0.00601):0.07824):0.28076,(DIVERSICOLOR:0.11169,IRIS:0.20507):0.04160):0.02019):0.01538,((PUSTULATA:0.07725,(TUBERCULATA:0.03380,COCCINEA:0.02564):0.12424):0.06526,(MIDAE:0.12865,((CYCLOBATES:0.09277,(RUBRA:0.00147,CONICOPORA:0.00084):0.05098):0.02514,(ROEI:0.01527,(SCALARIS:0.02790,LAEVIGATA:0.03226):0.02234):0.01459):0.04378):0.02106):0.00730):0.06896);",
+      "num_columns": 171,
+      "num_global_fine_cols": 131,
+      "num_clade_local_cols": 2,
+      "num_lineage_private_cols": 38,
+      "mean_core_posterior": 0.9720055718372251,
+      "horizon_bubbles": [],
+      "frameshifts_repaired": [],
+      "aligned_fasta": [
+        [
+          "RUFESCENS",
+          "---------------------------------------------CGCAGCTGGCATTATGTTGAACCCAAGTTT---TTAAACAAGGCTTTTGAAGTTGCACTGAAGGTACAGATCATTGCTGGATTCGATAGAGGGCTGGTCAAATGGCTTAGAGTTCATGGCAGAACATTGTCTACCGTTCAGAAGAAGGCGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGGCGAATTACATGCTCTGGATAAATAAGAAGATCGATGCACTGGGCAGAACTCCAGTTGTTGGTGACTACACACGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGCTTACTTTTACGACTTCCTGAAAGATAAGAACATGATCCCAAAATATCTGCCATACATGGAAGAAATTAATAGAATGCGCCCGGCAGATGTCCCAGTT------------------------------------AAA---------TACATG------------------"
+        ],
+        [
+          "SORENSENI",
+          "---------------------------------------------CGCCGCTGGCATTATGTTCCACCCAAGTTT---TTAAACAAGGCTTTTGAAGTTGCACTGAAGGTACAGATCATTGCTGGATTCGATAGAACGCTGGTCAAATGGCTTAGAACTCATGGCGGAACATTGTCTCACGTTCAGAAGAAGGCGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGGCGAACTACATGCTCTGGATAAATAAGAAGACCGATGCACTGGGCAGAACTCCAGTTGTTGGTGACTACACACGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGATTACTTTTACAACTTCCTGAAAGGGAGGAACATGATCCCAAAATATCTGCCATACATGGAAGAAATTAATAGAATGCGCTCGGCAGATATCCCAGTT------------------------------------AAA---------------TACATG------------"
+        ],
+        [
+          "WALALLENSIS",
+          "---------------------------------------------CGCCGCTGGAATTTTGTTACACCCAGGGAG---GTAAACAAGGCTTTTGAAGTTGCACTGAAGGTACAGATCATTGCTGGATTCGATAGAACGCTGGTCAAATGGCTTAGAGCTCATGGCAGATCATTGTCTCACGTTCAGAAGAAGGCGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGGCGAATTACATGCTCTGGGTAAATAAGAAGATCGATGCACTGGGCAGAACTGCAGTTGTTGCTGACTACACACGGTTAGGTGCCGAAATTGGAAGACGTATTGACATGGATTACTTTTACAACTTCCTGAAAGGAAGGAACATGATCCCAAAATATCTGCCATACATGGAAGAAATTAATAGAATGCGCTCGGCAGATATCCCAATT------------------------------------AGA---------------------TAC---------"
+        ],
+        [
+          "KAMTSCHATKANA",
+          "---------------------------------------------CGCAGCTGGACTTATGTTCAACCCAAGTTT---TTAAACAAGGCTTTTGAAGTTGCACTGAAGGAAGAGATCATTGTTCGATGGGATAGAAAGCTGGCCAAATGGCTTAGAGTTAATGGCGGACCATTGTCTCACGTTCAGAAGAAGGCGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGGCGAATTACATGCTCTGGATAAATAAGAAGACCGATGCACTGGGCAGAACTCCAGTTGTTGGTGACTACAGACGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGTTTTCTTTTACAAATTCCTGTCAGGGAGGAACATGATCCCAAAATATATGCCATACATGGAGCAGATTAATAGAATGCGCGCGGCAGATATCCCAGTT------------------------------------AAA---TACATG------------------------"
+        ],
+        [
+          "SIEBOLDII",
+          "---------------------------------------------CGCCGCTGGCATTTTGTTCAACATCAGTAT---GTAGACAAGGCTTTTGAAATTGCACTGAAGGAAGAGATCGTTGCTGGATTCGACAGAACGCTGGTCAAATGGCTTAGAGTTCATGGCAGAGGTTTGACTCCAGTTCAGAAGAAGGCGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGCAGAATTACATGCTCTGGATAGTCAAGAAGATCGATGCACTGGGCAGAACTCCAGTTGTTGGTGACTACAGACGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGATTATTTTTACAACTTCCTGAAAAATAGGAACATGATCCCAAAATATATGCCATACATGGAAGAACTTAATAGAATGCCCGCGAGAGATATCCCAGTT------------------------------------AAAAAC------------------------------"
+        ],
+        [
+          "DISCUS_HANNAI",
+          "---------------------------------------------CGCCGCTGGAATTTTGTTCGACATCAGTAT---GTAAACAAGGCTTTTGAAATTGCACTGAAGGAAGAGATCGTTGCTGGATTCGATAGAACGCTGAACAAATGGCTTAGCGCTCATGGCAGAGGTTTGACTCCAGATCAGAGGAAGGCGCTGTTCTTCGTCAATAGACGTTACATGCAGACCCACTGGCAGAATTACATGCTCTGGGTAGTGAAGAAGATCGATGCACTGGGCAGAACTCCAGTTGTTGCTGACTACAGACGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGATTATTTTTACAACTTCCTGAAAAATAGGAACATGATCCCAAAATATGTGAGATACATGGCCGCACTTAATAGAATGCCAGCGAGAGATATCCCAGTT------------------------------------AAAAAC------------------------------"
+        ],
+        [
+          "GIGANTEA",
+          "---------------------------------------------CGCCGCTGGAATTTTGTTCGACATCAGTAT---GTAAACAAGGCTTTTGAAATTGCACTGAAGGAAGAGATCGTTGCTGGATTCGATAGAACGCTGAACAAATGGCTTAGCGCTCATGGCAGAGGTTTGACTCCAGATCAGAGGAAGGCGCTGTTCTTCGTCAATAGACGTTACATGCAGACCCACTGGCAGAATTACATGCTCTGGGTAGTGAAGAAGATCGATGCACTGGGCAGAACTCCAGTTGTTGCTGACTACAGACGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGATTATTTTTACAACTTCCTGAAAAATAGGAACATGATCCCAAAATATGTGGGATACATGGCCGAACTTAATAGAATGCCAGCGAGAGATATCCCAGTT------------------------------------AAAAAC------------------------------"
+        ],
+        [
+          "CORRUGATA",
+          "---------------------------------------------CGCCGCTTCCGTTTTATTCCACATAAGTAT---ATACGCAAGGAGTTTGAAGTTGCACTGAAGGTAGAGATCATTGCCGGATTCGATAGAACGCTGGTCAAATGGCTTAGAGTTCATGGCGGACGTTTGAGTACAGTTCAGAAGAAGGCGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGCAGAATTACATGCTCTGGATAGTGAGGAAGACCGATGCACTGGGCAGACCTCCAGTTGTTGCTGACTACAGTCGGTTAGGTGCCGAAATTGGAAGACGTATTGATATGGCATATTTTTACAACTTCCTGAACGGGAGGAACATGATCCCAAAATATCTGCCATACATGGAGGAAATTAATAGAATGCGCCCGGCAGATGTCCCAGTT------------------------------GCAAAC------------------------------------"
+        ],
+        [
+          "CRACHERODII",
+          "---------------------------------------------CGCCGCTATCAATTTGTTCAACATCAGTAT---ATTCGCAAGGCTTTTGAAGTTGCACTGAAGGTAGAGATCATTGCTGGATTCGACAGAACGCTGGTCAAATGGCTTAGAAATCATGGCAGAGGTTTGAATGAAAATCAGAGGAAGGTGCTGTACTTCGTCAATAGACGTTACATGCAGACCCACTGGCAGAATTACATGCTCTGGATAGTGAAGAAGACCAATGCACTGGGCAGACCTCCAGTTGTTGCTGACTACCGTGCGTTGGGTGCCGAAATTGGAAGACGTATTGATATGGGATATTTTTACAACTTCCTGAAAAATAGGGTCATGATCCCAAAATATTTGCCATACATGCGAAGACTTAATAATATGCGCCCGGAAGATGTCCCAGTT---------------------GCAAACAAC------------------------------------------"
+        ],
+        [
+          "FULGENS",
+          "---------------------------------------------CGCCGATGGACTTTTGTTCGATATCATTAT---ATAAACAAGGCTTATGAAGTTACAATGAAGATACAGATCATTTCTGGATTCGATAGACAGCTGACCGCATGGCTCAGAGTTCATGGCAGACGTTTGACTAATAATCAGAAGAAGACGCTGTTCTTCGTCAATAGACGTTACATGCAGACCCACTGGCAGAATTACATGCTCTGGGTTAAGAGGAAGATCAAGGCACTGGGCAGACCCGCAGCTGTTGGTGACTACACTCGGTTAGGTGCCGAAATAGGAAGACGTGTTGATATGGTATTTTTTTACAACTTCCTGTCCGGGAGAAAAATGATCCCACCATACAGCGCATATATGGCAAAACTTAATGCCTTGCGCCCGGCAGATGTCCCAGTT------------------------------------AAAAAC------------------------------"
+        ],
+        [
+          "ROEI",
+          "---------------------------------------------CGCCATTGGCACTTTGTTGCCCACAAACAT---GTTTCCAGGCCTTTTGAAGTTGCACTGAAGGTCCAGATCATTGCTGGGTTTGATAGACAGTTGGCCTCCTGGCTTCAACGTCATGGCAGGCGTTTAAGCGCAATTCAGAAGAAGACGCTGTACTTCGTTAATAGGCGTTACATGCAGACTCACTGGCAAGCTTACATGGTGTGGATAGTCAAGCAGATAGAAAAACTTGGTAGGTCACCCAACGTTGGCGACTACAGCTACGTTGGTGCCGAGATCGGAAGACGTATTCCTTTGGAAGTAACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCTCAATGGCGTCAGTACATGGCAAACCTTATGGCCAAACGCGTGGAAGATATCCCAGTT------------------------------------------------------------------------"
+        ],
+        [
+          "SCALARIS",
+          "---------------------------------------------CGCCGATGGGTCTTTACGCCCCACAAACAT---GTTGCCAGGCAATTTGAAGTTGCACTGAAGGTCCAGATCATTGCTGGGTTTGATAGAAAGTTGGTTAACTGGCTTCGACGTCATGGCAAGTATGTGAGCGCAATTCAGAGGAAGTCGCTGTACTTCGTTAATAGGCGTTACATGCAGACTCACTGGCAAGCTTACATGGTGTGGATAGTCAAGCAAGTAGCCAAACTTGGTAGGCCACCCACCGTTAGCGACTACAGCTACGTTGGTGCCGAGATCGGAAGACGTATTCCTTTGGAAGTAACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCTGAAATGCGTCAGTACATGAGAGACCTTAATGCCAAACGCGTGGAAGATATCCCAGTT------------------------------------------------------------------------"
+        ],
+        [
+          "LAEVIGATA",
+          "---------------------------------------------CGCCGATGGCACTTTGTTCCCCACACACAT---GTTGCCAGGCCTTTTGAAGTTGCACTGAAGGTCCAGATCATTGCTGGGTTTGATAGAAAGTTGGTTGCCTGGCTTCAACGTCATGGCAGGCATCTAAGCGCAATTCAGAAGAAGTCGCTGTACTTCGTTAATAGGCGTTACATGCAGACTCACTGGCAAGCTTACATGGTGTGGATAGCTAAGCAAGTAGCCAAACTTGGTAGGGCACCCACCGTTAACGACTACAGTCGCATTGGTGCCGAGATCGGAAGACGTATTCCTTTGGAAGTAACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCTCGAATGCGTCAGTTCATGAGAGACCTTATTGCCAAACCCGTGCAAGATATCCCAATT------------------------------------------------------------------------"
+        ],
+        [
+          "CYCLOBATES",
+          "---------------------------------------------CGCCGATGGCACTTTACTGCCCACAGGAGA---ATTTCCAGGCGTTTTGAAGCTGCACTGAAGGTCCAGATCATTCTTGGGTTTGATAAAAAGTTGGCCACCTGGCTTGCACGTTATGGCAAGAATTTGAGCGCAATTCATAAGAAGACGCTGTACTTCTATAATAGGCGTCACATGCAGACTCACTGGCAATCCTACATGAGGTTCACAGAGAAGGATATAAGAAAACTTGGTAGGCCACCCAACAGTAACGACTACACTCGCATTGGTGCCGAGATCGGAAGACGTATTCCTATTGAATTGATGTACAGCTTTATGGTCAGGAGAAACATGATCCCTAGATGGCGTCCGTATATGGGAGTCCTTCTGTCCAAACGCAAGGAAGATATCCCAGTTAAT---------------------------------------------------------------------"
+        ],
+        [
+          "RUBRA",
+          "---------------------------------------------CGCCGATGGCACTTTGTTGCCCACAGACAT---GTTTCCAGGCAATTTGAAGTTGCACTGAAGGTCCAGATCATGGCTGGGTTTGATAAAAAGTTGACCAATTGGCTTGCACGTCATGGCAGGAATTTGAGCCCAATTCAGAAGAAGACGCTGTACTTCGTTAATAGGCGTTACATGCAGACTCACTGGCAGATGTACATGCAGTTCATAGTCAAGGAGATAGACAAACTTGGTAGGGCACCCAACGTTAACGACTACAGTCGCGTTGGTGCCGAGATCGGAAGACGTATTCCTCTGGAAGTAACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCTAGATGGCGTCAGTACATGGGAAACCTTCTGGCCAAACGCGTGGAAAATATCCCAATT------------------------------------------------------------------------"
+        ],
+        [
+          "CONICOPORA",
+          "---------------------------------------------CGCCGATGGCACTTTGTTGCCCACAGACAT---GTTTCCAGGCAATTTGAAGTTGCACTGAAGGTCCAGATCATGGCTGGGTTTGATAAAAAGTTGGCCAATTGGCTTGCACGTCATGGCAGGAATTTGAGCCCAATTCAGAAGAAGACGCTGTACTTCGTTAATAGGCGTTACATGCAGACTCACTGGCAGATGTACATGCAGTTCATAGTCAAGGAGATAAACAAACTTGGTAGGGCACCCAACGTTAACGACTACAGTCGCGTTGGTGCCGAGATCGGAAGACGTATTCCTCTGGAAGTAACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCTAGATGGCGTCAGTACATGGGAAACCTTCTGGCCAAACGCGTGGAAAATATCCCAATT------------------------------------------------------------------------"
+        ],
+        [
+          "PUSTULATA",
+          "---------------------------------------------CGCCACTGGGGCTTTGTTCCACACAGACGT---CTTGCCAGGCAATTTGAAGTTGCACTGAAGGTACAGATCATCGCTGGGTTTGATAGAAAATTGTCTGGCTGGCTTACCCGTCATGGCAGTCGTTTAAGTCCAATTCAGAGGAAGACGCTGTACTTTGTCAACAGACGTTATATGCAGACTCTCTGGCAAAACTACTTTCGGTTCGTAGCGAGGAGAATCGGCAAACTTGGAAGGGCTCCCAACGTGAACGACTACAATGCCGTAGGTGCCGAAATCGGAAGACGTGTTCCTTTGGAAGTGACCTATAGCTTTTTGGTCAGGCGAAACTTGATCCCAACTTGGCGTCAGTACATGGCAAATCTTTTGGCCAGACGTGTGGAAGATATCCCAGTT------------------------------------------------------------------------"
+        ],
+        [
+          "MIDAE",
+          "---------------------------------------------CGCCGTTTTTATTTTATTAGGCACCAGTAT---CTTGCCAAGCCATTTGAAGTTGCACTCAAGGTACAGATCGTTGCTGGGTTTGACAGAAAGTTGACTGCCTGGCTTCGACGTCATGGCAGCCATGTGAGCGCAATTAAGAGGAAGACGCTGTACTTCGTTAATAGACGTTACATGCAGACTCACTGGCAAGCCTACATGGTGTGGATTGTCAGGAAGATCAAAGCACTTGGAAGGCCACCCACCGTCGCAGATTACACTGCACTTGGTGCCGAGATCGGAAGACGTATTCCTTTGGAAGTAACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCTTCCTGGCGTCCGTACATGGCAAGACTTATGGCCAAACGTCCGGCAGATATCCCAATT------------------------------------------------------------------------"
+        ],
+        [
+          "OVINA",
+          "---------------------------------------------CGCCGTTGGGCCTTTATTCCCCCCACACGT---ATTCCCAGGGCTCATGAAGTTGCACTGAAGGTACAGATCATTGCTGGCTGGAACAGAAAGCTGGCCAACTGGCTTGCACGACATGGCAGTCGTTTGAGTGCAATTCAGAAGAAGACGCTGTACTTTGTGAACAGACGTTATATGCAGACTCACTGGCCATCCTACATGATATTTGTCAAGAAGCAGATAGCTAGACTTGGTAGGCCAGGCAACACTAACGACTACAGTCGCCTGGGTGCCGAGATCGGAAGACGTATTCCTATGGAAGTAAACTACAGCTTTCTGGTCAGGAGAAACTTGATCCCACGATGGCGTCAGTACATGGCAAACCTCATGGCCAAACGCGTGGAAGATATCCCAGTT------------------------------------------------------------------------"
+        ],
+        [
+          "DIVERSICOLOR",
+          "---------------------------------------------CGCGGTTGGGGCTATATTCCCCGCACACGT---CTAAACAGGGCTTTTGAAGTTGCACTGAAGGTGCAGATCATCGCTGGGTTTGATAGAAAGCTGACCAGCTGGCTTGGACGCCATGGTAGTCGTTTGAGTGCAATTCAGAGGAAGACGCTGTACTTCGTTAACAGGCGCTATCTGCAAACTCACTGGTCAGCCTACATGGTTTGGATAAACAAGCGGATAGCCGCACTTGGTAGAACAGCCACGACTGCAGACTACAATAACCTTGGTGCCGAGATCGGAAGACGTATTCCTATGGAAGTAACATACAGCTTTTTGGTCAGGAGAAACTTGATCCCCAAATGGCGTCCATATATGGCAGCCATTATGGCCAAATCAGCGGCAGATCTTGAAGTT------------------GCA---------------------------------------------------"
+        ],
+        [
+          "VARIA",
+          "---------------------------------------------CGCCGTTGGACCTTTATTCCGCGCAAACGT---CTTCCGATGGCTCATGAAGTTGCATTAAAGGTAGAGATCATTGCTGGGTTCAACAAAAAACTGGACATCTGGCTTGCACGACATGGCAGTCGTTTGAGTCCAATTCAGAAGAAGACGCTGTACTTTGTGAACAGACGTTATATGCAGACTCACTGGTCTAATTACATGTTGTGGGTTAAAAGGCGGATAAATAGTCTTGGAAGGCCAGGTACTACGGCAGACTACAGAAACCTCGGTGCTGAGATTGGAAGACGTGTTCCTTTGGAATTAACCTATAGCTTTTTGGTCCGGAGAAACTTGATCCCACAATGGCGTCAGTACATGGCAGACCTTATGGCCAGACGCGTGGCAGATATCCCAGTT---------------------------------------------------------------GCA------"
+        ],
+        [
+          "AUSTRALIS",
+          "---------------------------------------------CGCCGTTGGAGATTTGTTCCCCACGTACAA---GTTAACAGGTCTTTTGAAGTGGCACTGAAGGTACAGATCATTGCTGGGTTTGATAGAAAGTTGACAAGCTGGCTTTCACGTCATGGGCGTCGTCTGAACGCAGTTCAGAGGAAGACGTTGTACTTCGTCAACAGACGTTACATGCAGACTCACTGGCAATCTTACATGGTGTGGATAAACAAGCAGATCGCCAAACTTGGAAGGACTGCCACCGATGCCGACTACGCTAGCGTTGGTGCCGAAATCGGAAGACGTATTCCTCTGGAACTTACCTACAGCTTTTTGGTCAGGAGAAACTTGATCCCAAGATGGCGCCCATACATGGCAGCCCTTATGGCCAAGCGCGTGCAAGATATCCCAGTT------------------------------------------------------------------GCAAAT"
+        ],
+        [
+          "TUBERCULATA",
+          "---------------------------------------------------------------------------CACCTTACCAGGCAATTTGAAGTTGCTCTGAAGGTACAGATCATTGCTGGGTTTGATAAAAAGTTGGCTACCTGGATTAACCGTCATGGCAGTGGTTTAAGCGCAGTTCAGAAGAAGACGCTGTACTTTGTCAACAGACGTTATATGCAGACTTACTGGCAAAACTACATGCTGTTCGTAGATGAGAAGATACGAAAACTTGGAAGGGCTCCCAACGTTAACGACTACACTGCCATCGGTGCCGAAATTGGAAGACGTGTTCCTTTGCAAATAACATACCCCATTATGATCAAGTACCACATTCTTCCAAAATGGCGTCCGTACATGGGAAAAATTTTGGCCCTACGTGTGGAAGATATCCCAGTT---------GATTAT---------------------------------------------------------"
+        ],
+        [
+          "COCCINEA",
+          "------------------------------------------------------------------------CAA---CTTACCAGGCAATTTGAAGTTGCTCTGAAGGTACAGATCATTGCTGGGTTTGATAAAAAGTTGGCTGCCTGGATTAACCGTCATGGCAGGGGTTTAAGTGCAGTTCAGAAGAAGACGCTGTACTTTGTCAACAGACGTTATATGCAGACTTACTGGCAAAACTACATGCTGTTCGTAGATGAGAAGATACGAAAACTTGGAAGGGCTCCCAACGTTAACGACTACACTGCCATCGGTGCCGAAATTGGAAGACGTGTTCCTTTGCAAATAACATACCCCATTTTGATCAAGTACAACATTCTTCCAAAATGGCATCCGTACATGGGGAAAGTTTTGAGCCTACGTGTGGAAGATATCCCAGTT---GATTAT---------------------------------------------------------------"
+        ],
+        [
+          "IRIS",
+          "GGGTGGGGCTATCCACCAGGGACCTTTTTATCAAAAGCTAAGTTA---------------------------------------------------AGTGCACTGAAGACACAGATCATTGCTGGGTTCGATAGAAAGCTGGCCAGTTGGCTTAGACGTCATGGCAATCGTTTGAGCGCAATTCAGAAGAAGACGCTGTACTTCGTCAATAGACGTTACATGCAGACTCACTGGCGCTCTTACATGAAATTCGTACGAAATCAGATGAAATTACTTGGTAGAGCTGAAACCACTGCGGACTACAATCGCGTAGGTGCCGCAATTGGAAAACGCATTCCCTTGGAAATAACGTACAGCTTTTTAGTCAGGAGGAACTTGATACCTAAATGGAAACCGTACATGGCACGACTTATGGCCAGACGCCCAGGTGATATCCCAACT---------------TCG------------------------------------------------------"
+        ]
+      ],
+      "columns": [
+        {
+          "col_index": 0,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.24159009024690298
+        },
+        {
+          "col_index": 1,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.197184992419397
+        },
+        {
+          "col_index": 2,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.1865030315752748
+        },
+        {
+          "col_index": 3,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.1789516169409375
+        },
+        {
+          "col_index": 4,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.18232981781501498
+        },
+        {
+          "col_index": 5,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.18217633416608228
+        },
+        {
+          "col_index": 6,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.18971836395910338
+        },
+        {
+          "col_index": 7,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.17287200211238135
+        },
+        {
+          "col_index": 8,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.16641176575973007
+        },
+        {
+          "col_index": 9,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.15127285306511934
+        },
+        {
+          "col_index": 10,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.15009727478451132
+        },
+        {
+          "col_index": 11,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.1431491439245309
+        },
+        {
+          "col_index": 12,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.13924230202204557
+        },
+        {
+          "col_index": 13,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.15938888256254893
+        },
+        {
+          "col_index": 14,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.15844995452830257
+        },
+        {
+          "col_index": 15,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8959077566040686,
+          "coarse_bubble_posterior": 0.0326052432031356
+        },
+        {
+          "col_index": 16,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8907477592915373,
+          "coarse_bubble_posterior": 0.03660826579713006
+        },
+        {
+          "col_index": 17,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8936875090710513,
+          "coarse_bubble_posterior": 0.0344740693139575
+        },
+        {
+          "col_index": 18,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8922270059468522,
+          "coarse_bubble_posterior": 0.033992458063452156
+        },
+        {
+          "col_index": 19,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8927377123312115,
+          "coarse_bubble_posterior": 0.033369935723503816
+        },
+        {
+          "col_index": 20,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8897883463002696,
+          "coarse_bubble_posterior": 0.034097678131174425
+        },
+        {
+          "col_index": 21,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8633560140850195,
+          "coarse_bubble_posterior": 0.04443971204833187
+        },
+        {
+          "col_index": 22,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8565287513356671,
+          "coarse_bubble_posterior": 0.04819882493169452
+        },
+        {
+          "col_index": 23,
+          "scale": "GlobalFine",
+          "num_present": 22,
+          "mean_fine_posterior": 0.8580873612594142,
+          "coarse_bubble_posterior": 0.04802473931176716
+        },
+        {
+          "col_index": 24,
+          "scale": "GlobalFine",
+          "num_present": 23,
+          "mean_fine_posterior": 0.8568793914271456,
+          "coarse_bubble_posterior": 0.054895034904296695
+        },
+        {
+          "col_index": 25,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.3115813094077839
+        },
+        {
+          "col_index": 26,
+          "scale": "GlobalFine",
+          "num_present": 24,
+          "mean_fine_posterior": 0.897517078725725,
+          "coarse_bubble_posterior": 0.03946098675428881
+        },
+        {
+          "col_index": 27,
+          "scale": "GlobalFine",
+          "num_present": 24,
+          "mean_fine_posterior": 0.9176459693432624,
+          "coarse_bubble_posterior": 0.030462320921759985
+        },
+        {
+          "col_index": 28,
+          "scale": "GlobalFine",
+          "num_present": 24,
+          "mean_fine_posterior": 0.9353326772512023,
+          "coarse_bubble_posterior": 0.02229728071251559
+        },
+        {
+          "col_index": 29,
+          "scale": "GlobalFine",
+          "num_present": 24,
+          "mean_fine_posterior": 0.9425310791295723,
+          "coarse_bubble_posterior": 0.01890291970999548
+        },
+        {
+          "col_index": 30,
+          "scale": "GlobalFine",
+          "num_present": 24,
+          "mean_fine_posterior": 0.9530865165503066,
+          "coarse_bubble_posterior": 0.014465889708737778
+        },
+        {
+          "col_index": 31,
+          "scale": "GlobalFine",
+          "num_present": 24,
+          "mean_fine_posterior": 0.9684023244817744,
+          "coarse_bubble_posterior": 0.006935385465161614
+        },
+        {
+          "col_index": 32,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9347747068381864,
+          "coarse_bubble_posterior": 0.009468816130005386
+        },
+        {
+          "col_index": 33,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9939372747184017,
+          "coarse_bubble_posterior": 0.0012472906760344997
+        },
+        {
+          "col_index": 34,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.999476312994979,
+          "coarse_bubble_posterior": 0.00014082544070861402
+        },
+        {
+          "col_index": 35,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9998519656777642,
+          "coarse_bubble_posterior": 0.00005762433946171369
+        },
+        {
+          "col_index": 36,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9992719258215224,
+          "coarse_bubble_posterior": 0.0003678214138186981
+        },
+        {
+          "col_index": 37,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9996222639721204,
+          "coarse_bubble_posterior": 0.0001884460840151108
+        },
+        {
+          "col_index": 38,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999603434942609,
+          "coarse_bubble_posterior": 0.000018431142741301628
+        },
+        {
+          "col_index": 39,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.999884792880397,
+          "coarse_bubble_posterior": 0.00005756166686121728
+        },
+        {
+          "col_index": 40,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9996842258206587,
+          "coarse_bubble_posterior": 0.00016188950011468157
+        },
+        {
+          "col_index": 41,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9997055773056289,
+          "coarse_bubble_posterior": 0.0001517306567085384
+        },
+        {
+          "col_index": 42,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.999775289634827,
+          "coarse_bubble_posterior": 0.00011524566562507738
+        },
+        {
+          "col_index": 43,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999410946416515,
+          "coarse_bubble_posterior": 0.00003005675747262071
+        },
+        {
+          "col_index": 44,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9998897916419137,
+          "coarse_bubble_posterior": 0.00005391145775180939
+        },
+        {
+          "col_index": 45,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9995296194363529,
+          "coarse_bubble_posterior": 0.00023174030784728087
+        },
+        {
+          "col_index": 46,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9994659902095344,
+          "coarse_bubble_posterior": 0.0002601484685852763
+        },
+        {
+          "col_index": 47,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9965876545269561,
+          "coarse_bubble_posterior": 0.001445923037230714
+        },
+        {
+          "col_index": 48,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9965846909520917,
+          "coarse_bubble_posterior": 0.0014605315284619898
+        },
+        {
+          "col_index": 49,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9997759428950189,
+          "coarse_bubble_posterior": 0.00012320153032751582
+        },
+        {
+          "col_index": 50,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.999727755040844,
+          "coarse_bubble_posterior": 0.0001303342822616561
+        },
+        {
+          "col_index": 51,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9979131664674219,
+          "coarse_bubble_posterior": 0.0008917085328312113
+        },
+        {
+          "col_index": 52,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.997655133174352,
+          "coarse_bubble_posterior": 0.001033108112006187
+        },
+        {
+          "col_index": 53,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9995300579700733,
+          "coarse_bubble_posterior": 0.00020634460076925226
+        },
+        {
+          "col_index": 54,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9995548766375663,
+          "coarse_bubble_posterior": 0.00021397822054231158
+        },
+        {
+          "col_index": 55,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9936636375601193,
+          "coarse_bubble_posterior": 0.00302799213440635
+        },
+        {
+          "col_index": 56,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9929996734981406,
+          "coarse_bubble_posterior": 0.0033116798011348196
+        },
+        {
+          "col_index": 57,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9964192172037548,
+          "coarse_bubble_posterior": 0.0016852634122019245
+        },
+        {
+          "col_index": 58,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9958853520956246,
+          "coarse_bubble_posterior": 0.0018773288510244585
+        },
+        {
+          "col_index": 59,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9946241074337521,
+          "coarse_bubble_posterior": 0.0025073972535569855
+        },
+        {
+          "col_index": 60,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9955346972957337,
+          "coarse_bubble_posterior": 0.002140493238099979
+        },
+        {
+          "col_index": 61,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9996233324136079,
+          "coarse_bubble_posterior": 0.0001679116117443266
+        },
+        {
+          "col_index": 62,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9998662740655975,
+          "coarse_bubble_posterior": 0.000059471292637325444
+        },
+        {
+          "col_index": 63,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.999958184254607,
+          "coarse_bubble_posterior": 0.000018169653177671135
+        },
+        {
+          "col_index": 64,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999522950142447,
+          "coarse_bubble_posterior": 0.00002628531742262941
+        },
+        {
+          "col_index": 65,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999893382223721,
+          "coarse_bubble_posterior": 5.807787553644177e-6
+        },
+        {
+          "col_index": 66,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999891722235283,
+          "coarse_bubble_posterior": 4.908390441708442e-6
+        },
+        {
+          "col_index": 67,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.999982675497597,
+          "coarse_bubble_posterior": 8.011374759389808e-6
+        },
+        {
+          "col_index": 68,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999094827513064,
+          "coarse_bubble_posterior": 0.00004846028183830092
+        },
+        {
+          "col_index": 69,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999859276523544,
+          "coarse_bubble_posterior": 7.741458839292132e-6
+        },
+        {
+          "col_index": 70,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999832032912652,
+          "coarse_bubble_posterior": 9.209890463427235e-6
+        },
+        {
+          "col_index": 71,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999832291167323,
+          "coarse_bubble_posterior": 9.282638388660472e-6
+        },
+        {
+          "col_index": 72,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999693539066198,
+          "coarse_bubble_posterior": 0.000016701319297546456
+        },
+        {
+          "col_index": 73,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999894370286692,
+          "coarse_bubble_posterior": 5.873806679237849e-6
+        },
+        {
+          "col_index": 74,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999893547796048,
+          "coarse_bubble_posterior": 5.941401582884803e-6
+        },
+        {
+          "col_index": 75,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999901392921885,
+          "coarse_bubble_posterior": 5.551281801170689e-6
+        },
+        {
+          "col_index": 76,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999203453854303,
+          "coarse_bubble_posterior": 0.00004325286286609146
+        },
+        {
+          "col_index": 77,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999383478796531,
+          "coarse_bubble_posterior": 0.00003318634365065881
+        },
+        {
+          "col_index": 78,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9994188143335032,
+          "coarse_bubble_posterior": 0.00025535443830320597
+        },
+        {
+          "col_index": 79,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9992720183878862,
+          "coarse_bubble_posterior": 0.000334282827009688
+        },
+        {
+          "col_index": 80,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9997825841409285,
+          "coarse_bubble_posterior": 0.00011432406913251282
+        },
+        {
+          "col_index": 81,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9992760484367144,
+          "coarse_bubble_posterior": 0.0003622114430272504
+        },
+        {
+          "col_index": 82,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9972817670299983,
+          "coarse_bubble_posterior": 0.001146132605330728
+        },
+        {
+          "col_index": 83,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9949784337199659,
+          "coarse_bubble_posterior": 0.0017451535429743054
+        },
+        {
+          "col_index": 84,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9930299666850624,
+          "coarse_bubble_posterior": 0.0016677720443502655
+        },
+        {
+          "col_index": 85,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9873846352441251,
+          "coarse_bubble_posterior": 0.003287126215825446
+        },
+        {
+          "col_index": 86,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9881257832391332,
+          "coarse_bubble_posterior": 0.0029511901897694946
+        },
+        {
+          "col_index": 87,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9878715970038655,
+          "coarse_bubble_posterior": 0.003176262835378499
+        },
+        {
+          "col_index": 88,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9899279287867627,
+          "coarse_bubble_posterior": 0.003120829667443927
+        },
+        {
+          "col_index": 89,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9895819489572276,
+          "coarse_bubble_posterior": 0.0031752237785549284
+        },
+        {
+          "col_index": 90,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9917952289424109,
+          "coarse_bubble_posterior": 0.0023396797719557965
+        },
+        {
+          "col_index": 91,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9993084062412402,
+          "coarse_bubble_posterior": 0.0002911347743914789
+        },
+        {
+          "col_index": 92,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9997694428773661,
+          "coarse_bubble_posterior": 0.00009400018024307878
+        },
+        {
+          "col_index": 93,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9993677867246803,
+          "coarse_bubble_posterior": 0.00028450915259098955
+        },
+        {
+          "col_index": 94,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9918148577592467,
+          "coarse_bubble_posterior": 0.0023649353436731094
+        },
+        {
+          "col_index": 95,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9892668356763875,
+          "coarse_bubble_posterior": 0.003735468568162994
+        },
+        {
+          "col_index": 96,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9893149144303208,
+          "coarse_bubble_posterior": 0.0042288123981623
+        },
+        {
+          "col_index": 97,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.99063925572211,
+          "coarse_bubble_posterior": 0.003871709565214495
+        },
+        {
+          "col_index": 98,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9930692159796026,
+          "coarse_bubble_posterior": 0.0030458941623877356
+        },
+        {
+          "col_index": 99,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9994334189679377,
+          "coarse_bubble_posterior": 0.00025859824937038054
+        },
+        {
+          "col_index": 100,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9995969315979341,
+          "coarse_bubble_posterior": 0.00020679913891665506
+        },
+        {
+          "col_index": 101,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9968815836401995,
+          "coarse_bubble_posterior": 0.001509198438989013
+        },
+        {
+          "col_index": 102,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9963197897586308,
+          "coarse_bubble_posterior": 0.0018039670671582083
+        },
+        {
+          "col_index": 103,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9984873720147213,
+          "coarse_bubble_posterior": 0.0007825004690493521
+        },
+        {
+          "col_index": 104,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999180767812326,
+          "coarse_bubble_posterior": 0.00004404234928082314
+        },
+        {
+          "col_index": 105,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999793808250157,
+          "coarse_bubble_posterior": 0.000010952970877605376
+        },
+        {
+          "col_index": 106,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999585262445218,
+          "coarse_bubble_posterior": 0.00002223673862395169
+        },
+        {
+          "col_index": 107,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999863093428026,
+          "coarse_bubble_posterior": 7.62193372364936e-6
+        },
+        {
+          "col_index": 108,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999921010755767,
+          "coarse_bubble_posterior": 4.474515394665989e-6
+        },
+        {
+          "col_index": 109,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999814430049442,
+          "coarse_bubble_posterior": 0.000010342657224285177
+        },
+        {
+          "col_index": 110,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9999282437701867,
+          "coarse_bubble_posterior": 0.00003834377322217516
+        },
+        {
+          "col_index": 111,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9982933144164999,
+          "coarse_bubble_posterior": 0.0007243292335055354
+        },
+        {
+          "col_index": 112,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9918110392166265,
+          "coarse_bubble_posterior": 0.003741902521207225
+        },
+        {
+          "col_index": 113,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9862152779792488,
+          "coarse_bubble_posterior": 0.006511140841363303
+        },
+        {
+          "col_index": 114,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.972406889346629,
+          "coarse_bubble_posterior": 0.013921805228576358
+        },
+        {
+          "col_index": 115,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9640621883908045,
+          "coarse_bubble_posterior": 0.018598023553043953
+        },
+        {
+          "col_index": 116,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.964387617540094,
+          "coarse_bubble_posterior": 0.019003572315847695
+        },
+        {
+          "col_index": 117,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9689492975599444,
+          "coarse_bubble_posterior": 0.016844761184358722
+        },
+        {
+          "col_index": 118,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9658960636359429,
+          "coarse_bubble_posterior": 0.018893946004732366
+        },
+        {
+          "col_index": 119,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9637364937406327,
+          "coarse_bubble_posterior": 0.019964773798001868
+        },
+        {
+          "col_index": 120,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9623055842288037,
+          "coarse_bubble_posterior": 0.020391939402788103
+        },
+        {
+          "col_index": 121,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9563117121038607,
+          "coarse_bubble_posterior": 0.023215926691377994
+        },
+        {
+          "col_index": 122,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9557154601447995,
+          "coarse_bubble_posterior": 0.02342646418842767
+        },
+        {
+          "col_index": 123,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9575023081836008,
+          "coarse_bubble_posterior": 0.02242784527506517
+        },
+        {
+          "col_index": 124,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9718502260383629,
+          "coarse_bubble_posterior": 0.014385386312333494
+        },
+        {
+          "col_index": 125,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9786921668929457,
+          "coarse_bubble_posterior": 0.010814987741224849
+        },
+        {
+          "col_index": 126,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9836744906654362,
+          "coarse_bubble_posterior": 0.007995622272386746
+        },
+        {
+          "col_index": 127,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9957400746003039,
+          "coarse_bubble_posterior": 0.002354553097109472
+        },
+        {
+          "col_index": 128,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9881377938383737,
+          "coarse_bubble_posterior": 0.005659782188047587
+        },
+        {
+          "col_index": 129,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9774316816508608,
+          "coarse_bubble_posterior": 0.01054234166715877
+        },
+        {
+          "col_index": 130,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9735541339644146,
+          "coarse_bubble_posterior": 0.012751572344471688
+        },
+        {
+          "col_index": 131,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9752337134348948,
+          "coarse_bubble_posterior": 0.012103307993546936
+        },
+        {
+          "col_index": 132,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9811191586595401,
+          "coarse_bubble_posterior": 0.009295130348174042
+        },
+        {
+          "col_index": 133,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9809848894251842,
+          "coarse_bubble_posterior": 0.009455367188627363
+        },
+        {
+          "col_index": 134,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9579626518328943,
+          "coarse_bubble_posterior": 0.019442055270646193
+        },
+        {
+          "col_index": 135,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9393763316414381,
+          "coarse_bubble_posterior": 0.027327989964724776
+        },
+        {
+          "col_index": 136,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9294840856330943,
+          "coarse_bubble_posterior": 0.0324851555221912
+        },
+        {
+          "col_index": 137,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.8397001866087694,
+          "coarse_bubble_posterior": 0.0727904925515609
+        },
+        {
+          "col_index": 138,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.8220822415099216,
+          "coarse_bubble_posterior": 0.0790817305395131
+        },
+        {
+          "col_index": 139,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.822653477227648,
+          "coarse_bubble_posterior": 0.07852317039888769
+        },
+        {
+          "col_index": 140,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.8580749168742733,
+          "coarse_bubble_posterior": 0.06455143647131543
+        },
+        {
+          "col_index": 141,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.8869139758276664,
+          "coarse_bubble_posterior": 0.04828902412084735
+        },
+        {
+          "col_index": 142,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9077224127365278,
+          "coarse_bubble_posterior": 0.03804305641704741
+        },
+        {
+          "col_index": 143,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9821580038842941,
+          "coarse_bubble_posterior": 0.009188149480096209
+        },
+        {
+          "col_index": 144,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9759668852201637,
+          "coarse_bubble_posterior": 0.012581530587493403
+        },
+        {
+          "col_index": 145,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.9672389371139833,
+          "coarse_bubble_posterior": 0.017292546038934
+        },
+        {
+          "col_index": 146,
+          "scale": "GlobalFine",
+          "num_present": 25,
+          "mean_fine_posterior": 0.8839330978166955,
+          "coarse_bubble_posterior": 0.04656519463710555
+        },
+        {
+          "col_index": 147,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.08799607331962843
+        },
+        {
+          "col_index": 148,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.08697757553090449
+        },
+        {
+          "col_index": 149,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.09563515526987824
+        },
+        {
+          "col_index": 150,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.09053822228817715
+        },
+        {
+          "col_index": 151,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.09882912364856221
+        },
+        {
+          "col_index": 152,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.1438100148399363
+        },
+        {
+          "col_index": 153,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.24377944857054532
+        },
+        {
+          "col_index": 154,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.11699662351640074
+        },
+        {
+          "col_index": 155,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.13031999481591283
+        },
+        {
+          "col_index": 156,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.12200379645151838
+        },
+        {
+          "col_index": 157,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.1500063092870357
+        },
+        {
+          "col_index": 158,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.16850503348735738
+        },
+        {
+          "col_index": 159,
+          "scale": "CladeLocalFine",
+          "num_present": 8,
+          "mean_fine_posterior": 0.6136282984389156,
+          "coarse_bubble_posterior": 0.10796688446778577
+        },
+        {
+          "col_index": 160,
+          "scale": "CladeLocalFine",
+          "num_present": 4,
+          "mean_fine_posterior": 0.5532960301753082,
+          "coarse_bubble_posterior": 0.1347802189087815
+        },
+        {
+          "col_index": 161,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.2896837247232386
+        },
+        {
+          "col_index": 162,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.28894247439916554
+        },
+        {
+          "col_index": 163,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.3041247256704313
+        },
+        {
+          "col_index": 164,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.302963663956639
+        },
+        {
+          "col_index": 165,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.31551994265677347
+        },
+        {
+          "col_index": 166,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.31489803698581764
+        },
+        {
+          "col_index": 167,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.16089538493658403
+        },
+        {
+          "col_index": 168,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.13066930016034495
+        },
+        {
+          "col_index": 169,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.07768328549499393
+        },
+        {
+          "col_index": 170,
+          "scale": "LineagePrivate",
+          "num_present": 1,
+          "mean_fine_posterior": 1.0,
+          "coarse_bubble_posterior": 0.09890708844595562
+        }
+      ]
+    }
+  ],
+  "pairwise_summary": [
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "SORENSENI",
+      "mdl_gain_nats": 444.10484142360883,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.059999327698029646,
+      "est_t_syn": 0.060000850613466404,
+      "fine_homologous_pairs": 134,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "WALALLENSIS",
+      "mdl_gain_nats": 394.54776650651183,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.060135818020809285,
+      "est_t_syn": 0.06020372940445856,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "KAMTSCHATKANA",
+      "mdl_gain_nats": 373.67439244498235,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.06369785429961425,
+      "est_t_syn": 0.06554678186824882,
+      "fine_homologous_pairs": 134,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "SIEBOLDII",
+      "mdl_gain_nats": 337.50980491593737,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13650812355946623,
+      "est_t_syn": 0.17476211084597482,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "DISCUS_HANNAI",
+      "mdl_gain_nats": 279.9261887176084,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1438311285394325,
+      "est_t_syn": 0.18526762165379906,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "GIGANTEA",
+      "mdl_gain_nats": 285.16541815827907,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1416108717997053,
+      "est_t_syn": 0.18221452472804775,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 334.9682737363462,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.11911437587865634,
+      "est_t_syn": 0.14867261640823934,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 277.9876474278889,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.16096230320425808,
+      "est_t_syn": 0.20882310210825836,
+      "fine_homologous_pairs": 134,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 249.0796555294869,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29802782269667816,
+      "est_t_syn": 0.39728826186709093,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 172.76951918842155,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5983976123769802,
+      "est_t_syn": 0.8973323257039082,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 154.4525893250285,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999556416786813,
+      "est_t_syn": 0.8999353554134188,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 160.58292849069176,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5986094219395184,
+      "est_t_syn": 0.8977979500517141,
+      "fine_homologous_pairs": 125,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 135.3405608506505,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000039932420853,
+      "est_t_syn": 0.9000377312834366,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 154.96940006572572,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999565024884127,
+      "est_t_syn": 0.8999367471418778,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 152.83146680294476,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999632058986751,
+      "est_t_syn": 0.8999468099027383,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 136.01887478070716,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999975615479616,
+      "est_t_syn": 0.8999973694655772,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 163.51146312427375,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999769782698646,
+      "est_t_syn": 0.8999902664032277,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 148.65490013844976,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5996713291388134,
+      "est_t_syn": 0.8994526015580239,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 172.23239956601856,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5984568092202375,
+      "est_t_syn": 0.8974442725201368,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 143.81332134050763,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999960097790294,
+      "est_t_syn": 0.8999995554857084,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 165.63873827349698,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5940359833619051,
+      "est_t_syn": 0.8900603940313445,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 140.25032062919092,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5975911590407839,
+      "est_t_syn": 0.8959915625773499,
+      "fine_homologous_pairs": 118,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 144.99772635423233,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5993199934702206,
+      "est_t_syn": 0.8988733993019993,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUFESCENS",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 138.7262425498153,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997097232142006,
+      "est_t_syn": 0.8995162850268356,
+      "fine_homologous_pairs": 129,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "WALALLENSIS",
+      "mdl_gain_nats": 431.68647728654514,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.06000061523067132,
+      "est_t_syn": 0.060003314916170856,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "KAMTSCHATKANA",
+      "mdl_gain_nats": 395.09296398865933,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.060176956146916386,
+      "est_t_syn": 0.060265438870190806,
+      "fine_homologous_pairs": 134,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "SIEBOLDII",
+      "mdl_gain_nats": 348.2049986096263,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1147700502880048,
+      "est_t_syn": 0.14215507516987191,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "DISCUS_HANNAI",
+      "mdl_gain_nats": 295.35635854297425,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.14027679213675168,
+      "est_t_syn": 0.1803780123077273,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "GIGANTEA",
+      "mdl_gain_nats": 300.52748101912607,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.14006910703418743,
+      "est_t_syn": 0.18008844756946527,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 359.34281851899107,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.09412003332348921,
+      "est_t_syn": 0.11118014258419776,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 287.446997750131,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.14271772091549273,
+      "est_t_syn": 0.18373631462167858,
+      "fine_homologous_pairs": 134,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 242.85738913656155,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2997822176407624,
+      "est_t_syn": 0.3997005759027298,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 174.14116333124446,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5958121455772764,
+      "est_t_syn": 0.8930217322161741,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 168.52339424499792,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5996089836877081,
+      "est_t_syn": 0.8993503465901996,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 170.36087971212078,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.591048037640768,
+      "est_t_syn": 0.8851869241700971,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 142.47386571025652,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999974771455817,
+      "est_t_syn": 0.8999973849986833,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 160.02150454266007,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599890101431576,
+      "est_t_syn": 0.8998193672977786,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 157.8832254424516,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999202968490517,
+      "est_t_syn": 0.8998695273652738,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 146.80075847061244,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.59998878350076,
+      "est_t_syn": 0.8999815007791326,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 169.48142084718643,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999012885069199,
+      "est_t_syn": 0.8998418218212371,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 161.90127682139314,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5970671505858165,
+      "est_t_syn": 0.8951121523683314,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 180.5869843241478,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5964243814639827,
+      "est_t_syn": 0.8940621148563465,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 157.10809409894193,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999901559105874,
+      "est_t_syn": 0.8999881790747508,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 176.99183354243928,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5899516573682282,
+      "est_t_syn": 0.8832529027362541,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 141.09655466832146,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5941591357685763,
+      "est_t_syn": 0.8902687919736905,
+      "fine_homologous_pairs": 115,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 140.67443713430555,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5983669712705894,
+      "est_t_syn": 0.8972814104807278,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SORENSENI",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 146.32382227512892,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5972830326814124,
+      "est_t_syn": 0.8954717324211487,
+      "fine_homologous_pairs": 130,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "KAMTSCHATKANA",
+      "mdl_gain_nats": 333.30612968000173,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13923516479897868,
+      "est_t_syn": 0.1788526599091833,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "SIEBOLDII",
+      "mdl_gain_nats": 347.08161238553066,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13467419446274428,
+      "est_t_syn": 0.17201127416861084,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "DISCUS_HANNAI",
+      "mdl_gain_nats": 318.94062854673507,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1391356005857899,
+      "est_t_syn": 0.17870293615665292,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "GIGANTEA",
+      "mdl_gain_nats": 324.3891789878692,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13777407813826545,
+      "est_t_syn": 0.1766609344269309,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 332.17685880176543,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13949515793959147,
+      "est_t_syn": 0.17924239372533923,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 279.51658015836006,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.14238508737752784,
+      "est_t_syn": 0.18327837946302653,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 254.66139880412925,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2998031868429385,
+      "est_t_syn": 0.3997293920538206,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 169.66204281339856,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5990504980179933,
+      "est_t_syn": 0.8984220495340898,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 162.46278091285672,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998930112413576,
+      "est_t_syn": 0.8998301572064766,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 166.08410593328267,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5960178677282221,
+      "est_t_syn": 0.8935567699788619,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 143.01150535435931,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000001894547052,
+      "est_t_syn": 0.9000177755646276,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 165.27111168426654,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998270546605458,
+      "est_t_syn": 0.8997237232595866,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 162.82433159610355,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998754869911322,
+      "est_t_syn": 0.8998023543674454,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 145.6442891758793,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599986962991113,
+      "est_t_syn": 0.8999784490505215,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 165.05940216911915,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997949220701241,
+      "est_t_syn": 0.8996687954693378,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 162.89089940710176,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5993728049847287,
+      "est_t_syn": 0.89895531545073,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 176.06289569809746,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.598906409557497,
+      "est_t_syn": 0.8982392403516498,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 160.5224025895418,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999222131131254,
+      "est_t_syn": 0.8998733515772438,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 185.83263147894013,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5947989227330506,
+      "est_t_syn": 0.8913336271199752,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 144.7328161932419,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5912230778564599,
+      "est_t_syn": 0.8853740216610074,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 150.4856620738036,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5958649550279274,
+      "est_t_syn": 0.8931108392149876,
+      "fine_homologous_pairs": 124,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "WALALLENSIS",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 138.1541584010862,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5615521563968375,
+      "est_t_syn": 0.8359204015634637,
+      "fine_homologous_pairs": 120,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "SIEBOLDII",
+      "mdl_gain_nats": 311.98260658028516,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13981947828299973,
+      "est_t_syn": 0.1797273709788624,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "DISCUS_HANNAI",
+      "mdl_gain_nats": 264.39721271116,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.15733340084609548,
+      "est_t_syn": 0.2038333751615799,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "GIGANTEA",
+      "mdl_gain_nats": 266.1407945427155,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.15455372206795528,
+      "est_t_syn": 0.20001130283935273,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 302.7895937605997,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13646707679493805,
+      "est_t_syn": 0.1746995768203362,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 239.10274231511505,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29701857922589325,
+      "est_t_syn": 0.3959005504369199,
+      "fine_homologous_pairs": 134,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 229.86869425034388,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29999325980984237,
+      "est_t_syn": 0.3999911650131569,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 149.86339490522505,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997269650814285,
+      "est_t_syn": 0.8995451668250232,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 137.7228651473813,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999927649209085,
+      "est_t_syn": 0.8999899004358384,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 135.24727475905206,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997107726117977,
+      "est_t_syn": 0.8995292896169593,
+      "fine_homologous_pairs": 119,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 117.31735767014993,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000189383125502,
+      "est_t_syn": 0.9001407338862613,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 130.89070640947944,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999987474810914,
+      "est_t_syn": 0.9000019530390396,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 130.34092534268405,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999979257592306,
+      "est_t_syn": 0.9000016760119889,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 122.26233933998537,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000028655541924,
+      "est_t_syn": 0.9000229401087253,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 139.22186750894252,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000062401234264,
+      "est_t_syn": 0.9001465865025665,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 143.86407483634002,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5988670227436258,
+      "est_t_syn": 0.8981118352339309,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 158.86188218925383,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998075505794672,
+      "est_t_syn": 0.8996803731801504,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 141.5667911737554,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999956321288846,
+      "est_t_syn": 0.9000046340524354,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 147.54952523580369,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5994775319358437,
+      "est_t_syn": 0.8991292814941216,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 122.43370991161441,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999176432046692,
+      "est_t_syn": 0.8998831862555295,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 124.53299735750579,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999060481889018,
+      "est_t_syn": 0.8998475728386239,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "KAMTSCHATKANA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 127.37425599881078,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998336217138783,
+      "est_t_syn": 0.8997228976191323,
+      "fine_homologous_pairs": 129,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "DISCUS_HANNAI",
+      "mdl_gain_nats": 422.9465363057659,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.060003042209078095,
+      "est_t_syn": 0.060005523745766474,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "GIGANTEA",
+      "mdl_gain_nats": 429.2150679537219,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.06000053107027724,
+      "est_t_syn": 0.06000281909505416,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 341.95440416728445,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13771551805594454,
+      "est_t_syn": 0.1765732439530136,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 326.4906488937389,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13125539691848634,
+      "est_t_syn": 0.16688304250071098,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 251.87577703605575,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2996582891573456,
+      "est_t_syn": 0.3995301556622659,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 186.19632791565164,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5677161278005549,
+      "est_t_syn": 0.8461984599245778,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 171.08935989665997,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599619811328116,
+      "est_t_syn": 0.8993669952197928,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 184.25434411808533,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5979316203075855,
+      "est_t_syn": 0.8965575016502928,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 142.99392379644155,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999993598373826,
+      "est_t_syn": 0.9000045438556478,
+      "fine_homologous_pairs": 128,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 179.07768617975034,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5931221544620839,
+      "est_t_syn": 0.8885490917768895,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 177.1499492344517,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.594234410239197,
+      "est_t_syn": 0.8903994759680038,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 147.3666793434861,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999845035991369,
+      "est_t_syn": 0.8999743054848006,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 179.57343364283736,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5887314805025959,
+      "est_t_syn": 0.8812279931167629,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 146.75247961912282,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997562478592497,
+      "est_t_syn": 0.8995938030536819,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 156.36185575973707,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999606575610062,
+      "est_t_syn": 0.8999350612202452,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 156.34676852612267,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999527315586721,
+      "est_t_syn": 0.8999215668072157,
+      "fine_homologous_pairs": 128,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 181.1751517693956,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5943202135812187,
+      "est_t_syn": 0.8905338937723603,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 132.6436869808797,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998891186462816,
+      "est_t_syn": 0.899816049142887,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 137.7934183062323,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599940459139106,
+      "est_t_syn": 0.8999016187823862,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "SIEBOLDII",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 132.95343490923347,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5917278623530658,
+      "est_t_syn": 0.8862131135784218,
+      "fine_homologous_pairs": 124,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "GIGANTEA",
+      "mdl_gain_nats": 520.9644733806249,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.0023356115459652964,
+      "est_t_syn": 0.007341701198017901,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 299.35596224191977,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.14008400444847974,
+      "est_t_syn": 0.18011322129789703,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 308.86414089925927,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1394557531004375,
+      "est_t_syn": 0.1791823940007812,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 252.00985354508396,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29895733226374854,
+      "est_t_syn": 0.398566337379988,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 171.03748816732218,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5995574055043282,
+      "est_t_syn": 0.8992633453156712,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 156.09078464437766,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999913975170629,
+      "est_t_syn": 0.899987438888531,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 163.76477977277557,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999571574337228,
+      "est_t_syn": 0.8999314221908938,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 128.1062460457507,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000356426805691,
+      "est_t_syn": 0.9002816978471949,
+      "fine_homologous_pairs": 128,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 167.83346971742094,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997897296162461,
+      "est_t_syn": 0.8996522082614044,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 163.86168599374582,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999165969137142,
+      "est_t_syn": 0.8998642905728628,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 151.75358919711266,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999631773098552,
+      "est_t_syn": 0.899938697093933,
+      "fine_homologous_pairs": 126,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 167.74664442507378,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599758537518846,
+      "est_t_syn": 0.8996420696554783,
+      "fine_homologous_pairs": 126,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 138.7937638156999,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999952008611701,
+      "est_t_syn": 0.8999927645445912,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 154.32322025600388,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999945039770036,
+      "est_t_syn": 0.8999937026558937,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 155.1725045622735,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999918483632328,
+      "est_t_syn": 0.8999900538254932,
+      "fine_homologous_pairs": 125,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 175.65272351486135,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5993246561895693,
+      "est_t_syn": 0.8988766299990056,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 121.4707878602585,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999278729743092,
+      "est_t_syn": 0.8998823775503418,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 127.25471065088414,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999895551839817,
+      "est_t_syn": 0.8999833206401611,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DISCUS_HANNAI",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 120.25779243909346,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998309185228318,
+      "est_t_syn": 0.8997183434283021,
+      "fine_homologous_pairs": 125,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "CORRUGATA",
+      "mdl_gain_nats": 304.79399968301345,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1399907601033096,
+      "est_t_syn": 0.1799814052341866,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 309.44426910130153,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13940994584354474,
+      "est_t_syn": 0.17911367445172907,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 256.0596752240767,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2989158262398398,
+      "est_t_syn": 0.3985092640182861,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 170.52630589164664,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5995328660969461,
+      "est_t_syn": 0.8992222057985526,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 157.18506493904385,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999896254006309,
+      "est_t_syn": 0.8999840667488729,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 164.95416839866743,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999835268673155,
+      "est_t_syn": 0.8999745590685373,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 127.4652108450473,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000250508325814,
+      "est_t_syn": 0.9001972118556486,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 167.3668396321334,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997172259743943,
+      "est_t_syn": 0.8995310455043452,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 163.4135544023702,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998879383447283,
+      "est_t_syn": 0.899815978801697,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 151.25307877480793,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999639395735498,
+      "est_t_syn": 0.8999399533296891,
+      "fine_homologous_pairs": 126,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 168.48934106315232,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998626161745761,
+      "est_t_syn": 0.8998032007843687,
+      "fine_homologous_pairs": 126,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 138.47784406688197,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999953374925752,
+      "est_t_syn": 0.899992819012565,
+      "fine_homologous_pairs": 127,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 152.46671871323656,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999918158976604,
+      "est_t_syn": 0.8999879596114582,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 156.098235506935,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999896041338669,
+      "est_t_syn": 0.8999851761787676,
+      "fine_homologous_pairs": 125,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 173.76956955828052,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5994115801028244,
+      "est_t_syn": 0.8990203861516197,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 122.50952681832746,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999673585181688,
+      "est_t_syn": 0.8999475190979865,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 128.47540006050804,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999918770357447,
+      "est_t_syn": 0.8999869434015563,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "GIGANTEA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 120.97830381049982,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998119433360005,
+      "est_t_syn": 0.8996866816119612,
+      "fine_homologous_pairs": 125,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "CRACHERODII",
+      "mdl_gain_nats": 343.4397121716918,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1308020121837053,
+      "est_t_syn": 0.16620301203228308,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 269.278964580688,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.28068610341783423,
+      "est_t_syn": 0.373443392265978,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 178.50813816546656,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5977108134900763,
+      "est_t_syn": 0.8961881654270006,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 184.5224277176642,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5987850442438685,
+      "est_t_syn": 0.8979822119057991,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 173.7051868693776,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5946056411369198,
+      "est_t_syn": 0.8911223471029619,
+      "fine_homologous_pairs": 125,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 144.97364145783672,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999981021514403,
+      "est_t_syn": 0.8999975596124274,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 163.45372701390977,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997973467770137,
+      "est_t_syn": 0.8996676802037866,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 161.15546024366483,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998584746886844,
+      "est_t_syn": 0.8997685452137074,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 156.53644037734898,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.59988442668682,
+      "est_t_syn": 0.8998073991069024,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 193.82746744863448,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5962862361324577,
+      "est_t_syn": 0.8940783659418,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 159.06917610057144,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5994919089989232,
+      "est_t_syn": 0.8991533733685595,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 165.50721884006953,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997855393232706,
+      "est_t_syn": 0.8996429298392783,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 167.14017151743883,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997519803290468,
+      "est_t_syn": 0.8995898449377354,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 180.9084959099074,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5990083344262609,
+      "est_t_syn": 0.898347395947652,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 138.71823745041638,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5992575876224736,
+      "est_t_syn": 0.8987642530978388,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 141.07206677381566,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5991396726833622,
+      "est_t_syn": 0.8985662806600898,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CORRUGATA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 144.81182301408273,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.476763281378098,
+      "est_t_syn": 0.6946055351983248,
+      "fine_homologous_pairs": 115,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "FULGENS",
+      "mdl_gain_nats": 243.28502854287137,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29988859842421034,
+      "est_t_syn": 0.3998468460983321,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 165.9792661732397,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5992417919595783,
+      "est_t_syn": 0.8987366321415089,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 171.00068707189348,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997751954879672,
+      "est_t_syn": 0.8996284222775743,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 158.1650160197844,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599687090786075,
+      "est_t_syn": 0.8994800275069161,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 136.0566247272268,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.6000000937250901,
+      "est_t_syn": 0.9000026029731591,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 151.80063915994765,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999784917993565,
+      "est_t_syn": 0.8999646252397882,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 154.84638274319843,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999384593861775,
+      "est_t_syn": 0.8998976341438762,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 141.6493675357633,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999841762322312,
+      "est_t_syn": 0.8999736737283531,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 190.925454623154,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5933975923318623,
+      "est_t_syn": 0.8890702409501197,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 142.19077049321186,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5984890758558441,
+      "est_t_syn": 0.8974817956624768,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 143.61459892289963,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999403217008192,
+      "est_t_syn": 0.8999010641083978,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 146.6940273087066,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999841825167265,
+      "est_t_syn": 0.8999749160264141,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 172.473943355232,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.596698941451642,
+      "est_t_syn": 0.8944982637163862,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 134.4278853599276,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5966339255160059,
+      "est_t_syn": 0.8943913831761056,
+      "fine_homologous_pairs": 109,
+      "coarse_bubble_segments": 2
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 138.49709733740247,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5909525979182856,
+      "est_t_syn": 0.8849229521082304,
+      "fine_homologous_pairs": 110,
+      "coarse_bubble_segments": 2
+    },
+    {
+      "id_x": "CRACHERODII",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 124.61816138120275,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5986543376060142,
+      "est_t_syn": 0.8977573150482638,
+      "fine_homologous_pairs": 120,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "ROEI",
+      "mdl_gain_nats": 173.1683422073047,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599313730330496,
+      "est_t_syn": 0.898856386359287,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 151.07930591536626,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999962201741001,
+      "est_t_syn": 0.8999947536225152,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 152.10454051304475,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599990711522672,
+      "est_t_syn": 0.899985518771619,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 138.28642769651083,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999998761837765,
+      "est_t_syn": 0.9000008749995183,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 150.4747095356779,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999940005662888,
+      "est_t_syn": 0.8999900983490476,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 148.68263845730462,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999959272528688,
+      "est_t_syn": 0.8999933140910508,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 149.1820542530828,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599990849717525,
+      "est_t_syn": 0.8999848196488412,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 186.7605615508253,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5994827712352728,
+      "est_t_syn": 0.899147109138506,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 163.8339452414741,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5997602403157688,
+      "est_t_syn": 0.8996004258536021,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 154.3215847249278,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999719305586518,
+      "est_t_syn": 0.8999532748794152,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 171.2995838963917,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.599316201469987,
+      "est_t_syn": 0.8988604585883038,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 172.35646692770388,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999050450524452,
+      "est_t_syn": 0.899841971132277,
+      "fine_homologous_pairs": 133,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 130.07316367369936,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5998886514204783,
+      "est_t_syn": 0.8998525537986037,
+      "fine_homologous_pairs": 113,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 132.9274237163238,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999746312831967,
+      "est_t_syn": 0.9000254174252997,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "FULGENS",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 138.33906645200796,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5999111374397343,
+      "est_t_syn": 0.8998519989154318,
+      "fine_homologous_pairs": 124,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "SCALARIS",
+      "mdl_gain_nats": 373.1056929331472,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.06316130547184941,
+      "est_t_syn": 0.06474195891547586,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 373.4598888572177,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.07164637392919933,
+      "est_t_syn": 0.07746956358893005,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 277.7678148683674,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1417264737121877,
+      "est_t_syn": 0.18237386825908009,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 379.56449791245154,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.06752159275552802,
+      "est_t_syn": 0.07128243695056359,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 381.6082108022042,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.06401628027932507,
+      "est_t_syn": 0.06602447972276448,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 295.85298365538574,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.28401919340858667,
+      "est_t_syn": 0.3780372218856369,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 297.7916809029905,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.18525142914108023,
+      "est_t_syn": 0.2422207464466849,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 295.7037076165351,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.16213978910209056,
+      "est_t_syn": 0.21044230326601357,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 259.95849760411534,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.299426791768571,
+      "est_t_syn": 0.3992118692762163,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 250.59759509853689,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29998186742167576,
+      "est_t_syn": 0.39997517756619105,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 295.01334935762213,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.19314925628572727,
+      "est_t_syn": 0.2531270633780264,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 223.61700768966455,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29999359415320526,
+      "est_t_syn": 0.39999165344971876,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 221.13884778618558,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.299998862902637,
+      "est_t_syn": 0.3999994225805372,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "ROEI",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 223.33125240211405,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2839932950227301,
+      "est_t_syn": 0.37799320967615896,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "LAEVIGATA",
+      "mdl_gain_nats": 399.87149460551234,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.060041431798215396,
+      "est_t_syn": 0.06006215029968138,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 246.01536175754143,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2532825590197041,
+      "est_t_syn": 0.335763518640656,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 332.41986757387406,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1396527414877634,
+      "est_t_syn": 0.17947900056325974,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 331.3935546242426,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13962219882707666,
+      "est_t_syn": 0.17943317583192883,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 266.0848575652392,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2998913575643674,
+      "est_t_syn": 0.3998506812912789,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 291.07525158012163,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.15638411789483728,
+      "est_t_syn": 0.20252816479509364,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 264.53556429581613,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29897613035736725,
+      "est_t_syn": 0.398592201085503,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 238.87502347607438,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29997504356099647,
+      "est_t_syn": 0.3999657716541501,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 224.62997279776596,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30012941843255436,
+      "est_t_syn": 0.4002157209570078,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 276.1611245109325,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.26214045738625197,
+      "est_t_syn": 0.347943574512707,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 195.22557395529998,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3004226432493582,
+      "est_t_syn": 0.4007044164709587,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 188.69723567711753,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30136206251139525,
+      "est_t_syn": 0.4022701564152289,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "SCALARIS",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 191.6348843590033,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29996357653870204,
+      "est_t_syn": 0.3999539935945568,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "CYCLOBATES",
+      "mdl_gain_nats": 253.71970775002126,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.20744050822714735,
+      "est_t_syn": 0.2727306986462223,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 347.87810057417585,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.1350018660207488,
+      "est_t_syn": 0.1725027992198479,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 346.8004560933175,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13384572394528663,
+      "est_t_syn": 0.1707685859559933,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 267.84541726719635,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29987699175058974,
+      "est_t_syn": 0.3998308935993313,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 281.2114141052525,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2104237255400402,
+      "est_t_syn": 0.2768326311032311,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 272.9449261018515,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29723989077175805,
+      "est_t_syn": 0.3962048865225605,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 247.10212600017417,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999585310308389,
+      "est_t_syn": 0.39994305257295343,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 218.21798193287145,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30087717867626224,
+      "est_t_syn": 0.4014619757960269,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 284.95148873650055,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.265250575686972,
+      "est_t_syn": 0.35222276591872265,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 201.28979306661438,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3001334610877396,
+      "est_t_syn": 0.4002225024360752,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 202.55431248272407,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30005653128533466,
+      "est_t_syn": 0.4000991672231358,
+      "fine_homologous_pairs": 116,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "LAEVIGATA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 197.00742528322667,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999654700578672,
+      "est_t_syn": 0.39996443099570633,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "RUBRA",
+      "mdl_gain_nats": 311.7235928724101,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13998396372372107,
+      "est_t_syn": 0.17997411207705896,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 317.31592849711546,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.13991823199305387,
+      "est_t_syn": 0.17987672083851947,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 217.19664545060596,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30104065862371904,
+      "est_t_syn": 0.4017344745983659,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 214.21586142843648,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000824971900828,
+      "est_t_syn": 0.4001376063065746,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 238.63477494852486,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999491068885455,
+      "est_t_syn": 0.39993013066319316,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 196.19194961192613,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3135499199700395,
+      "est_t_syn": 0.4225832001680405,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 186.44868884605535,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.5850595198591388,
+      "est_t_syn": 0.8750992436063318,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 235.04515079762587,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000288528318987,
+      "est_t_syn": 0.4000481805815148,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 212.1566831249022,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000238969237812,
+      "est_t_syn": 0.400040392449761,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 202.17965691598147,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30042374891669693,
+      "est_t_syn": 0.40070630667008855,
+      "fine_homologous_pairs": 123,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CYCLOBATES",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 190.85531940175974,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000489173244985,
+      "est_t_syn": 0.4000825922594558,
+      "fine_homologous_pairs": 115,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "CONICOPORA",
+      "mdl_gain_nats": 523.8096340284395,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.002298488736617524,
+      "est_t_syn": 0.007193717191898498,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 296.26209309314686,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2953777148996485,
+      "est_t_syn": 0.3937091758916806,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 263.61963812967315,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.299070867665742,
+      "est_t_syn": 0.39872244888773706,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 278.2614780003041,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2898798798220209,
+      "est_t_syn": 0.3860849607553764,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 231.8817506004557,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999434478534785,
+      "est_t_syn": 0.39992236070427,
+      "fine_homologous_pairs": 129,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 227.60071391035308,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30011009088591967,
+      "est_t_syn": 0.4001835749377134,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 265.64471588915535,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29870841277746063,
+      "est_t_syn": 0.39822504809279424,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 223.11181951170852,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000033402232846,
+      "est_t_syn": 0.4000067289460233,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 219.6125043972055,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000244219177898,
+      "est_t_syn": 0.4000410769239285,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "RUBRA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 198.274583160387,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29997061472834813,
+      "est_t_syn": 0.39996119580163086,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "PUSTULATA",
+      "mdl_gain_nats": 295.4664588906985,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2954312679262845,
+      "est_t_syn": 0.3937889584977226,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 260.9641963175179,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2990143654330709,
+      "est_t_syn": 0.39864475699738233,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 280.5373366050046,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2867615472570839,
+      "est_t_syn": 0.3817973414415314,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 227.0410818034161,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29998689005928375,
+      "est_t_syn": 0.3999824300202549,
+      "fine_homologous_pairs": 129,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 231.45801124612058,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30004300913585435,
+      "est_t_syn": 0.4000718323730095,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 262.2742844199254,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29934999340892965,
+      "est_t_syn": 0.3991065523653374,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 227.3751280047029,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999975547405111,
+      "est_t_syn": 0.39999778662078883,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 223.3966549948484,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000134909971428,
+      "est_t_syn": 0.400023087657979,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "CONICOPORA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 202.83972917137464,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29985457187589304,
+      "est_t_syn": 0.39980047986498884,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "MIDAE",
+      "mdl_gain_nats": 255.52942636984505,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.299980411309909,
+      "est_t_syn": 0.3999732268052097,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 263.96121762735277,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999794417483,
+      "est_t_syn": 0.39997197457676564,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 233.97432407743258,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3002215115493322,
+      "est_t_syn": 0.4003692313441462,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 254.1521396357141,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999566227552215,
+      "est_t_syn": 0.39994060574199686,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 254.7948885311996,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999692992646953,
+      "est_t_syn": 0.39995789541346366,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 256.14692758744,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.17389048475341418,
+      "est_t_syn": 0.22659940900717984,
+      "fine_homologous_pairs": 121,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 250.0384674635253,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.19188316947930786,
+      "est_t_syn": 0.2513393580016401,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "PUSTULATA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 197.59525377341606,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3022166758399104,
+      "est_t_syn": 0.4036973430501247,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "OVINA",
+      "mdl_gain_nats": 233.37331320921533,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2999139146044071,
+      "est_t_syn": 0.3998842183381734,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 249.01843123327706,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29984872597499557,
+      "est_t_syn": 0.399906471481443,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 239.97223972690608,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30000456174352463,
+      "est_t_syn": 0.4000085398181917,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 255.8089171150333,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29992263342731385,
+      "est_t_syn": 0.39989413145031505,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 204.33652000055315,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3002876006496373,
+      "est_t_syn": 0.40047935299972925,
+      "fine_homologous_pairs": 121,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 198.8774909461971,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3004434503482285,
+      "est_t_syn": 0.40073909755141707,
+      "fine_homologous_pairs": 121,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "MIDAE",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 214.58819036953741,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.29992661705673457,
+      "est_t_syn": 0.3999229257302805,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "OVINA",
+      "id_y": "DIVERSICOLOR",
+      "mdl_gain_nats": 268.70298942517616,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2980028306309704,
+      "est_t_syn": 0.3972539472981376,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "OVINA",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 303.37119084606786,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.15778028673609662,
+      "est_t_syn": 0.20444803038034906,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "OVINA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 261.8074681016119,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.299972382086711,
+      "est_t_syn": 0.39996274052098424,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "OVINA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 195.91403847675872,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3007436756624508,
+      "est_t_syn": 0.40123948372264684,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "OVINA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 187.19119430789476,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30390757038978805,
+      "est_t_syn": 0.4065126312649142,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "OVINA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 211.52550519653562,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30178872331139683,
+      "est_t_syn": 0.4029887607061067,
+      "fine_homologous_pairs": 119,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DIVERSICOLOR",
+      "id_y": "VARIA",
+      "mdl_gain_nats": 261.864321307218,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3000093716862973,
+      "est_t_syn": 0.40001614559645804,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DIVERSICOLOR",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 287.4155797990055,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2994739542648013,
+      "est_t_syn": 0.4001065367889283,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DIVERSICOLOR",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 175.45172783433873,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.578317858962694,
+      "est_t_syn": 0.8638644749945872,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DIVERSICOLOR",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 168.89222428607002,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.593769334340064,
+      "est_t_syn": 0.8896162135631918,
+      "fine_homologous_pairs": 122,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "DIVERSICOLOR",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 222.19988702259616,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30630913031280316,
+      "est_t_syn": 0.41052497168087965,
+      "fine_homologous_pairs": 131,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "VARIA",
+      "id_y": "AUSTRALIS",
+      "mdl_gain_nats": 239.2478930259124,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30025352681891576,
+      "est_t_syn": 0.40042328140394406,
+      "fine_homologous_pairs": 132,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "VARIA",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 176.75103488878028,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3323571638671779,
+      "est_t_syn": 0.45392873407653045,
+      "fine_homologous_pairs": 116,
+      "coarse_bubble_segments": 1
+    },
+    {
+      "id_x": "VARIA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 169.77362457815116,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.4009975675313283,
+      "est_t_syn": 0.5683293409562583,
+      "fine_homologous_pairs": 121,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "VARIA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 194.30075395688527,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.33990972907048944,
+      "est_t_syn": 0.4666686235040983,
+      "fine_homologous_pairs": 115,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "AUSTRALIS",
+      "id_y": "TUBERCULATA",
+      "mdl_gain_nats": 204.82256329903043,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3009686638454837,
+      "est_t_syn": 0.40161444766317583,
+      "fine_homologous_pairs": 124,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "AUSTRALIS",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 203.41692482107635,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.302149876604794,
+      "est_t_syn": 0.4035832193907647,
+      "fine_homologous_pairs": 124,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "AUSTRALIS",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 216.4675330608477,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.2998926020086764,
+      "est_t_syn": 0.3998811082834427,
+      "fine_homologous_pairs": 114,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "TUBERCULATA",
+      "id_y": "COCCINEA",
+      "mdl_gain_nats": 449.25436509974475,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.05940859332665344,
+      "est_t_syn": 0.059798574526704555,
+      "fine_homologous_pairs": 124,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "TUBERCULATA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 173.57213649964012,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.30177484258836434,
+      "est_t_syn": 0.4029581118943666,
+      "fine_homologous_pairs": 115,
+      "coarse_bubble_segments": 0
+    },
+    {
+      "id_x": "COCCINEA",
+      "id_y": "IRIS",
+      "mdl_gain_nats": 169.36795713557672,
+      "homology_posterior": 1.0,
+      "est_t_primary": 0.3081635519755579,
+      "est_t_syn": 0.41360597911113456,
+      "fine_homologous_pairs": 115,
+      "coarse_bubble_segments": 0
+    }
+  ]
+}

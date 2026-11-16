@@ -1,0 +1,306 @@
+{
+  "kraft_checks": {
+    "column_dm_mixture_kraft_sum_K4_n5": 1.000000000000002,
+    "row_markov_kt_kraft_sum_W8": 1.0000000000000002,
+    "elias_rissanen_kraft_sum": 0.9999999999999911
+  },
+  "by_regime": {
+    "RegimeA_ZeroHomology": {
+      "squint": {
+        "cohorts": 6,
+        "pooled_FDR_pair": 0.0,
+        "total_emitted_pairs": 0,
+        "total_false_pairs": 0,
+        "pooled_SeqPair_FPR": 0.0,
+        "pooled_SeqPair_Recall": null,
+        "total_L0_nats": 38297.69673642047,
+        "total_L_msa_nats": 38304.288410152476,
+        "total_delta_L_nats": -6.591673732007621,
+        "total_exact_cons_cols": 0,
+        "total_biophys_cons_cols": 0,
+        "total_gap_opens": 0
+      },
+      "mafft": {
+        "cohorts": 6,
+        "pooled_FDR_pair": 1.0,
+        "total_emitted_pairs": 22640,
+        "total_false_pairs": 22640,
+        "pooled_SeqPair_FPR": 1.0,
+        "pooled_SeqPair_Recall": null,
+        "total_L0_nats": 38297.69673642047,
+        "total_L_msa_nats": 44669.38816862958,
+        "total_delta_L_nats": -6371.691432209111,
+        "total_exact_cons_cols": 239,
+        "total_biophys_cons_cols": 229,
+        "total_gap_opens": 847
+      },
+      "muscle": {
+        "cohorts": 6,
+        "pooled_FDR_pair": 1.0,
+        "total_emitted_pairs": 32253,
+        "total_false_pairs": 32253,
+        "pooled_SeqPair_FPR": 1.0,
+        "pooled_SeqPair_Recall": null,
+        "total_L0_nats": 38297.69673642047,
+        "total_L_msa_nats": 44142.31619931588,
+        "total_delta_L_nats": -5844.619462895411,
+        "total_exact_cons_cols": 89,
+        "total_biophys_cons_cols": 93,
+        "total_gap_opens": 458
+      },
+      "clustalo": {
+        "cohorts": 6,
+        "pooled_FDR_pair": 1.0,
+        "total_emitted_pairs": 19733,
+        "total_false_pairs": 19733,
+        "pooled_SeqPair_FPR": 0.983739837398374,
+        "pooled_SeqPair_Recall": null,
+        "total_L0_nats": 38297.69673642047,
+        "total_L_msa_nats": 45491.62551827191,
+        "total_delta_L_nats": -7193.928781851442,
+        "total_exact_cons_cols": 244,
+        "total_biophys_cons_cols": 187,
+        "total_gap_opens": 845
+      }
+    },
+    "RegimeB_Entrapment_MultiFam": {
+      "squint": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.0,
+        "total_emitted_pairs": 37365,
+        "total_false_pairs": 0,
+        "pooled_SeqPair_FPR": 0.0,
+        "pooled_SeqPair_Recall": 0.9335548172757475,
+        "total_L0_nats": 85954.38877828835,
+        "total_L_msa_nats": 57785.758919200016,
+        "total_delta_L_nats": 28168.629859088338,
+        "total_exact_cons_cols": 2425,
+        "total_biophys_cons_cols": 2263,
+        "total_gap_opens": 256
+      },
+      "mafft": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.6567271976888155,
+        "total_emitted_pairs": 125996,
+        "total_false_pairs": 82745,
+        "pooled_SeqPair_FPR": 1.0,
+        "pooled_SeqPair_Recall": 1.0,
+        "total_L0_nats": 85954.38877828835,
+        "total_L_msa_nats": 75631.11095311826,
+        "total_delta_L_nats": 10323.277825170095,
+        "total_exact_cons_cols": 771,
+        "total_biophys_cons_cols": 661,
+        "total_gap_opens": 1646
+      },
+      "muscle": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.71704513632545,
+        "total_emitted_pairs": 157124,
+        "total_false_pairs": 112665,
+        "pooled_SeqPair_FPR": 1.0,
+        "pooled_SeqPair_Recall": 1.0,
+        "total_L0_nats": 85954.38877828835,
+        "total_L_msa_nats": 77846.30821477372,
+        "total_delta_L_nats": 8108.080563514639,
+        "total_exact_cons_cols": 599,
+        "total_biophys_cons_cols": 413,
+        "total_gap_opens": 1489
+      },
+      "clustalo": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.6511629789748945,
+        "total_emitted_pairs": 123519,
+        "total_false_pairs": 80431,
+        "pooled_SeqPair_FPR": 0.9841628959276018,
+        "pooled_SeqPair_Recall": 1.0,
+        "total_L0_nats": 85954.38877828835,
+        "total_L_msa_nats": 76828.44790124836,
+        "total_delta_L_nats": 9125.94087703999,
+        "total_exact_cons_cols": 721,
+        "total_biophys_cons_cols": 537,
+        "total_gap_opens": 1620
+      }
+    },
+    "RegimeC_RealHomologs": {
+      "squint": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.0,
+        "total_emitted_pairs": 174877,
+        "total_false_pairs": 0,
+        "pooled_SeqPair_FPR": null,
+        "pooled_SeqPair_Recall": 0.8534773801485482,
+        "total_L0_nats": 90705.28116113372,
+        "total_L_msa_nats": 51180.49732655118,
+        "total_delta_L_nats": 39524.783834582544,
+        "total_exact_cons_cols": 1118,
+        "total_biophys_cons_cols": 1076,
+        "total_gap_opens": 583
+      },
+      "mafft": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.0,
+        "total_emitted_pairs": 231520,
+        "total_false_pairs": 0,
+        "pooled_SeqPair_FPR": null,
+        "pooled_SeqPair_Recall": 1.0,
+        "total_L0_nats": 90705.28116113372,
+        "total_L_msa_nats": 51897.58848728724,
+        "total_delta_L_nats": 38807.69267384648,
+        "total_exact_cons_cols": 1011,
+        "total_biophys_cons_cols": 1030,
+        "total_gap_opens": 866
+      },
+      "muscle": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.0,
+        "total_emitted_pairs": 245346,
+        "total_false_pairs": 0,
+        "pooled_SeqPair_FPR": null,
+        "pooled_SeqPair_Recall": 1.0,
+        "total_L0_nats": 90705.28116113372,
+        "total_L_msa_nats": 52282.64501438281,
+        "total_delta_L_nats": 38422.63614675091,
+        "total_exact_cons_cols": 976,
+        "total_biophys_cons_cols": 977,
+        "total_gap_opens": 722
+      },
+      "clustalo": {
+        "cohorts": 8,
+        "pooled_FDR_pair": 0.0,
+        "total_emitted_pairs": 225769,
+        "total_false_pairs": 0,
+        "pooled_SeqPair_FPR": null,
+        "pooled_SeqPair_Recall": 1.0,
+        "total_L0_nats": 90705.28116113372,
+        "total_L_msa_nats": 53397.69902400409,
+        "total_delta_L_nats": 37307.58213712963,
+        "total_exact_cons_cols": 1007,
+        "total_biophys_cons_cols": 1004,
+        "total_gap_opens": 1035
+      }
+    }
+  },
+  "slices": {
+    "ZeroHom_10_CrossKingdom_AA": {
+      "squint": {
+        "abstained_components": 10
+      },
+      "mafft": {
+        "window": [
+          550,
+          580
+        ],
+        "marker_line": "**  ++ * +*    **+    +**     ",
+        "rows": {
+          "ADH_leb": "KLAPITGVTAYSINPGITR-TPLVHTFNSW",
+          "AdoR_GPCR_Sorex": "------------------------------",
+          "FluH1N1HA_AB501381": "NIPSIQSRGLFGAIAGFIE-GGWTGMVDGW",
+          "Globin_human": "KVKAHGKKVLGAFSDGLAHLDNLKGTFATL",
+          "HIV1Vif_B_SF2": "KVGSLQ----YLALAALIT-----------",
+          "IgVHH_LGL132362": "--------------------------FSTY",
+          "Lysozyme_HUMAN": "--------ACHLSCSALLQ-DNIADAVACA",
+          "PTSTransp_NC_004368_25010264": "ALFGVNVKYIYPFVAGMIG-SSVAGLLATT",
+          "RuBisCO_AchMa_AJ235781": "IVMHDYLTGGFTANTSLAH-----------",
+          "SpermLysin_RUFESCENS": "------KKALYFVNRRYMQ-THWAN-YMLW"
+        },
+        "mean_occupancy": 0.66
+      },
+      "muscle": {
+        "window": [
+          366,
+          396
+        ],
+        "marker_line": "       +                  *  +",
+        "rows": {
+          "ADH_leb": "NPGITRTPLVHTFNSWLDVEPRVAELLLSH",
+          "AdoR_GPCR_Sorex": "TAKYLFLILFLFALSWLPLSIINCVLYFNV",
+          "FluH1N1HA_AB501381": "APRYAFALSRGFGSGIINSNAPMDKCDAKC",
+          "Globin_human": "NLKGTFATLSELHCDKLHVDPENFRLLGNV",
+          "HIV1Vif_B_SF2": "DPGLADQLIHLHYFDCFSESAIKNAILGYR",
+          "IgVHH_LGL132362": "FTISRDNAKNTLYLQMNS------------",
+          "Lysozyme_HUMAN": "TPGAVNACHLSCSALLQDNIADAVACAKRV",
+          "PTSTransp_NC_004368_25010264": "SNIAQGSAVLAYYFMHRHDEKEAQISLPAA",
+          "RuBisCO_AchMa_AJ235781": "FTKDDENVNSQPFMRWRDRFLFCAEALYKA",
+          "SpermLysin_RUFESCENS": "GAEIGRRIDMAYFYDFLKDKNMIPKYLPYM"
+        },
+        "mean_occupancy": 0.96
+      },
+      "clustalo": {
+        "window": [
+          290,
+          320
+        ],
+        "marker_line": "   *  *          + *+   * *+  ",
+        "rows": {
+          "ADH_leb": "--SINPGITRTPLVHTFNSWLDVEPRVAEL",
+          "AdoR_GPCR_Sorex": "-----------MVYFSFFTWIFIPLVVMCA",
+          "FluH1N1HA_AB501381": "YPNLSKSYANNKEKEVLVLWGVHHPPNIGD",
+          "Globin_human": "------------------------------",
+          "HIV1Vif_B_SF2": "---------------------STHPRVSSE",
+          "IgVHH_LGL132362": "LSCAASGFT---FSTYWMYWVRQAP-----",
+          "Lysozyme_HUMAN": "------------------------------",
+          "PTSTransp_NC_004368_25010264": "IPALLAGLS---LSYLEIFWRKHIPEVVSM",
+          "RuBisCO_AchMa_AJ235781": "YECLRGGLD---FTKDD-------E-----",
+          "SpermLysin_RUFESCENS": "---------------GLVKWLRVHG-----"
+        },
+        "mean_occupancy": 0.5333333333333333
+      }
+    },
+    "ZeroHom_7_SingleDomain_AA": {
+      "squint": {
+        "abstained_components": 7
+      },
+      "mafft": {
+        "window": [
+          139,
+          169
+        ],
+        "marker_line": "*++   * **    *  *   *  **** *",
+        "rows": {
+          "ADH_leb": "DQLKTVDILINGAGILDDHQIE--RTIAIN",
+          "AdoR_GPCR_Sorex": "KTAKYLFLI--------------LFLFALS",
+          "Globin_human": "DGLAHLDNLKGTFATLSELHCDKLHVDPEN",
+          "HIV1Vif_B_SF2": "DQLIHLH-----------------YFDCFS",
+          "IgVHH_LGL132362": "DNTYYTDSVKGRFTISRDNAKNTLYL----",
+          "Lysozyme_HUMAN": "CSALLQDNIADAVACAKRVVRD--------",
+          "SpermLysin_RUFESCENS": "DMAYFYDFLKDKNMIPK-------YL----"
+        },
+        "mean_occupancy": 0.7333333333333333
+      },
+      "muscle": {
+        "window": [
+          249,
+          279
+        ],
+        "marker_line": "*      +   *      +          *",
+        "rows": {
+          "ADH_leb": "FVKAIEANKNGAIWKLDLGTLEAIEWTKHW",
+          "AdoR_GPCR_Sorex": "FNVDVPRGVQYLGILLSH------------",
+          "Globin_human": "FTPPVQAA------YQKVVAGVANALAHKY",
+          "HIV1Vif_B_SF2": "PLPSVKKLTEDRWNKPQKTKGHRGSHTMNG",
+          "IgVHH_LGL132362": "FTISRDNAKNTL--YLQMNSLKPEDTARYY",
+          "Lysozyme_HUMAN": "VVRDPQGIRAWVAWRNRCQNRDVRQYVQGC",
+          "SpermLysin_RUFESCENS": "FLKDKNMIPKYLPYMEEINRMRPADVPVKY"
+        },
+        "mean_occupancy": 0.9047619047619048
+      },
+      "clustalo": {
+        "window": [
+          121,
+          151
+        ],
+        "marker_line": "      * *  ** +     *   +*   *",
+        "rows": {
+          "ADH_leb": "LVNTTTAILDFWDKRKGGPGGIIANICSVT",
+          "AdoR_GPCR_Sorex": "--------------------------CQFR",
+          "Globin_human": "TPEEKSAVTALWGKVNVDEVGGEALGRLLV",
+          "HIV1Vif_B_SF2": "LGDAKLVITTYWGLHTGEREWHLGQGVAI-",
+          "IgVHH_LGL132362": "--------LQESGGHLVQPGGSLRLSCAAS",
+          "Lysozyme_HUMAN": "ISLANWMCLAKWESGYNTRATNYNAGDRST",
+          "SpermLysin_RUFESCENS": "YMQTHWANYMLWINKKIDALGRTPVVGDYT"
+        },
+        "mean_occupancy": 0.8333333333333333
+      }
+    }
+  }
+}

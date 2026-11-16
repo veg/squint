@@ -1,0 +1,16 @@
+# Rust build outputs
+/target/
+
+# Python caches
+**/__pycache__/
+*.py[cod]
+
+# OS / editor metadata
+.DS_Store
+*.swp
+*.swo
+
+# Local scratch & large external benchmark caches
+/test.fas
+/test.nex
+/benchmarks/external_data/

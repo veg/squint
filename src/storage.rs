@@ -1,14 +1,19 @@
 use std::collections::{BTreeMap, HashMap, HashSet};
+#[cfg(not(target_arch = "wasm32"))]
 use std::ffi::{CStr, CString};
+#[cfg(not(target_arch = "wasm32"))]
 use std::fs;
+#[cfg(not(target_arch = "wasm32"))]
 use std::os::raw::{c_char, c_int, c_void};
+#[cfg(not(target_arch = "wasm32"))]
 use std::path::Path;
 
 use serde::{Deserialize, Serialize};
 
 use crate::alphabet::SeqMode;
 use crate::multiseq::{
-    CohortHomologyLedger, ColumnScale, HorizonBubbleReport, TreeNodeRecord,
+    AnnotatedColumn, CohortHomologyLedger, ColumnScale, HomologyComponentReport,
+    HorizonBubbleReport, TreeNodeRecord,
 };
 use crate::transducer::FrameshiftEvent;
 
@@ -16,23 +21,27 @@ use crate::transducer::FrameshiftEvent;
 // Native macOS libsqlite3 FFI (zero external Cargo dependencies)
 // -----------------------------------------------------------------------------
 
+#[cfg(not(target_arch = "wasm32"))]
+mod sqlite_ffi {
+    use super::*;
+
 #[repr(C)]
-struct sqlite3 {
+pub(super) struct sqlite3 {
     _private: [u8; 0],
 }
 
 #[repr(C)]
-struct sqlite3_stmt {
+pub(super) struct sqlite3_stmt {
     _private: [u8; 0],
 }
 
-const SQLITE_OK: c_int = 0;
-const SQLITE_ROW: c_int = 100;
-const SQLITE_DONE: c_int = 101;
-const SQLITE_NULL: c_int = 5;
-const SQLITE_OPEN_READONLY: c_int = 0x0000_0001;
-const SQLITE_OPEN_READWRITE: c_int = 0x0000_0002;
-const SQLITE_OPEN_CREATE: c_int = 0x0000_0004;
+pub(super) const SQLITE_OK: c_int = 0;
+pub(super) const SQLITE_ROW: c_int = 100;
+pub(super) const SQLITE_DONE: c_int = 101;
+pub(super) const SQLITE_NULL: c_int = 5;
+pub(super) const SQLITE_OPEN_READONLY: c_int = 0x0000_0001;
+pub(super) const SQLITE_OPEN_READWRITE: c_int = 0x0000_0002;
+pub(super) const SQLITE_OPEN_CREATE: c_int = 0x0000_0004;
 
 #[link(name = "sqlite3")]
 extern "C" {
@@ -82,7 +91,7 @@ extern "C" {
 
 const SQLITE_TRANSIENT: isize = -1;
 
-struct SqliteDb {
+pub(super) struct SqliteDb {
     raw: *mut sqlite3,
 }
 
@@ -98,7 +107,7 @@ impl Drop for SqliteDb {
 }
 
 impl SqliteDb {
-    fn open(path: &Path, flags: c_int) -> Result<Self, String> {
+    pub(super) fn open(path: &Path, flags: c_int) -> Result<Self, String> {
         let p_str = path
             .to_str()
             .ok_or_else(|| format!("Non-UTF8 path: {}", path.display()))?;
@@ -126,7 +135,7 @@ impl SqliteDb {
             .into_owned()
     }
 
-    fn exec(&self, sql: &str) -> Result<(), String> {
+    pub(super) fn exec(&self, sql: &str) -> Result<(), String> {
         let c_sql = CString::new(sql).map_err(|e| format!("Invalid SQL: {e}"))?;
         let mut errmsg: *mut c_char = std::ptr::null_mut();
         let rc = unsafe {
@@ -153,7 +162,7 @@ impl SqliteDb {
         Ok(())
     }
 
-    fn prepare<'a>(&'a self, sql: &str) -> Result<SqliteStmt<'a>, String> {
+    pub(super) fn prepare<'a>(&'a self, sql: &str) -> Result<SqliteStmt<'a>, String> {
         let mut raw_stmt: *mut sqlite3_stmt = std::ptr::null_mut();
         let rc = unsafe {
             sqlite3_prepare_v2(
@@ -174,7 +183,7 @@ impl SqliteDb {
     }
 }
 
-struct SqliteStmt<'a> {
+pub(super) struct SqliteStmt<'a> {
     raw: *mut sqlite3_stmt,
     db: &'a SqliteDb,
 }
@@ -191,7 +200,7 @@ impl<'a> Drop for SqliteStmt<'a> {
 }
 
 impl<'a> SqliteStmt<'a> {
-    fn reset(&self) -> Result<(), String> {
+    pub(super) fn reset(&self) -> Result<(), String> {
         let rc1 = unsafe { sqlite3_reset(self.raw) };
         let rc2 = unsafe { sqlite3_clear_bindings(self.raw) };
         if rc1 != SQLITE_OK || rc2 != SQLITE_OK {
@@ -200,7 +209,7 @@ impl<'a> SqliteStmt<'a> {
         Ok(())
     }
 
-    fn bind_i64(&self, idx: c_int, val: i64) -> Result<(), String> {
+    pub(super) fn bind_i64(&self, idx: c_int, val: i64) -> Result<(), String> {
         let rc = unsafe { sqlite3_bind_int64(self.raw, idx, val) };
         if rc != SQLITE_OK {
             return Err(format!("SQLite bind_int64({idx}): {}", self.db.err_msg()));
@@ -208,7 +217,7 @@ impl<'a> SqliteStmt<'a> {
         Ok(())
     }
 
-    fn bind_f64(&self, idx: c_int, val: f64) -> Result<(), String> {
+    pub(super) fn bind_f64(&self, idx: c_int, val: f64) -> Result<(), String> {
         let rc = unsafe { sqlite3_bind_double(self.raw, idx, val) };
         if rc != SQLITE_OK {
             return Err(format!("SQLite bind_double({idx}): {}", self.db.err_msg()));
@@ -216,7 +225,7 @@ impl<'a> SqliteStmt<'a> {
         Ok(())
     }
 
-    fn bind_text(&self, idx: c_int, val: &str) -> Result<(), String> {
+    pub(super) fn bind_text(&self, idx: c_int, val: &str) -> Result<(), String> {
         let ptr = if val.is_empty() {
             b"\0".as_ptr() as *const c_char
         } else {
@@ -231,7 +240,7 @@ impl<'a> SqliteStmt<'a> {
         Ok(())
     }
 
-    fn bind_opt_i64(&self, idx: c_int, val: Option<usize>) -> Result<(), String> {
+    pub(super) fn bind_opt_i64(&self, idx: c_int, val: Option<usize>) -> Result<(), String> {
         match val {
             Some(v) => self.bind_i64(idx, v as i64),
             None => {
@@ -244,7 +253,7 @@ impl<'a> SqliteStmt<'a> {
         }
     }
 
-    fn bind_opt_text(&self, idx: c_int, val: Option<&str>) -> Result<(), String> {
+    pub(super) fn bind_opt_text(&self, idx: c_int, val: Option<&str>) -> Result<(), String> {
         match val {
             Some(v) => self.bind_text(idx, v),
             None => {
@@ -257,7 +266,7 @@ impl<'a> SqliteStmt<'a> {
         }
     }
 
-    fn step_done(&self) -> Result<(), String> {
+    pub(super) fn step_done(&self) -> Result<(), String> {
         let rc = unsafe { sqlite3_step(self.raw) };
         if rc != SQLITE_DONE {
             return Err(format!("SQLite step_done error ({rc}): {}", self.db.err_msg()));
@@ -265,7 +274,7 @@ impl<'a> SqliteStmt<'a> {
         Ok(())
     }
 
-    fn step_row(&self) -> Result<bool, String> {
+    pub(super) fn step_row(&self) -> Result<bool, String> {
         let rc = unsafe { sqlite3_step(self.raw) };
         match rc {
             SQLITE_ROW => Ok(true),
@@ -274,15 +283,15 @@ impl<'a> SqliteStmt<'a> {
         }
     }
 
-    fn col_i64(&self, col: c_int) -> i64 {
+    pub(super) fn col_i64(&self, col: c_int) -> i64 {
         unsafe { sqlite3_column_int64(self.raw, col) }
     }
 
-    fn col_usize(&self, col: c_int) -> usize {
+    pub(super) fn col_usize(&self, col: c_int) -> usize {
         unsafe { sqlite3_column_int64(self.raw, col) }.max(0) as usize
     }
 
-    fn col_opt_usize(&self, col: c_int) -> Option<usize> {
+    pub(super) fn col_opt_usize(&self, col: c_int) -> Option<usize> {
         if unsafe { sqlite3_column_type(self.raw, col) } == SQLITE_NULL {
             None
         } else {
@@ -290,11 +299,11 @@ impl<'a> SqliteStmt<'a> {
         }
     }
 
-    fn col_f64(&self, col: c_int) -> f64 {
+    pub(super) fn col_f64(&self, col: c_int) -> f64 {
         unsafe { sqlite3_column_double(self.raw, col) }
     }
 
-    fn col_text(&self, col: c_int) -> String {
+    pub(super) fn col_text(&self, col: c_int) -> String {
         if unsafe { sqlite3_column_type(self.raw, col) } == SQLITE_NULL {
             return String::new();
         }
@@ -307,7 +316,7 @@ impl<'a> SqliteStmt<'a> {
         String::from_utf8_lossy(slice).into_owned()
     }
 
-    fn col_opt_text(&self, col: c_int) -> Option<String> {
+    pub(super) fn col_opt_text(&self, col: c_int) -> Option<String> {
         if unsafe { sqlite3_column_type(self.raw, col) } == SQLITE_NULL {
             None
         } else {
@@ -315,6 +324,10 @@ impl<'a> SqliteStmt<'a> {
         }
     }
 }
+} // mod sqlite_ffi
+
+#[cfg(not(target_arch = "wasm32"))]
+use sqlite_ffi::*;
 
 // -----------------------------------------------------------------------------
 // Hierarchical Alignment Archive Model
@@ -554,6 +567,70 @@ impl HierarchicalArchive {
             components,
         }
     }
+
+    pub fn to_ledger(&self) -> CohortHomologyLedger {
+        let seqs_by_id: HashMap<usize, &ArchSeq> =
+            self.seqs.iter().map(|s| (s.seq_id, s)).collect();
+        let mut components = Vec::with_capacity(self.components.len());
+        for comp in &self.components {
+            let mut sequence_ids = Vec::with_capacity(comp.seq_ids.len());
+            let mut unaligned_seqs = Vec::with_capacity(comp.seq_ids.len());
+            for &sid in &comp.seq_ids {
+                if let Some(s) = seqs_by_id.get(&sid) {
+                    sequence_ids.push(s.name.clone());
+                    unaligned_seqs.push((s.name.clone(), s.raw_seq.clone()));
+                }
+            }
+            let aligned_fasta = render_component_matrix(comp, &self.seqs, self.mode, false);
+            let mut columns = Vec::with_capacity(comp.num_columns);
+            let mut sorted_blocks: Vec<&CollinearBlock> = comp.blocks.iter().collect();
+            sorted_blocks.sort_by_key(|b| b.col_start);
+            for blk in sorted_blocks {
+                let np = blk.segments.len();
+                for offset in 0..blk.col_len {
+                    let c_idx = blk.col_start + offset;
+                    let fine_p = blk.fine_posteriors.get(offset).copied().unwrap_or(1.0);
+                    let bub_p = blk.bubble_posteriors.get(offset).copied().unwrap_or(0.0);
+                    columns.push(AnnotatedColumn {
+                        col_index: c_idx,
+                        scale: blk.scale,
+                        owner_node_id: blk.owner_node_id,
+                        num_present: np,
+                        mean_fine_posterior: fine_p,
+                        coarse_bubble_posterior: bub_p,
+                    });
+                }
+            }
+            components.push(HomologyComponentReport {
+                component_id: comp.comp_id,
+                sequence_ids,
+                newick_tree: comp.newick_tree.clone(),
+                root_node_id: comp.root_node_id,
+                tree_nodes: comp.tree_nodes.clone(),
+                unaligned_seqs,
+                num_columns: comp.num_columns,
+                num_global_fine_cols: comp.num_global_fine_cols,
+                num_clade_local_cols: comp.num_clade_local_cols,
+                num_lineage_private_cols: comp.num_lineage_private_cols,
+                mean_core_posterior: comp.mean_core_posterior,
+                horizon_bubbles: comp.horizon_bubbles.clone(),
+                frameshifts_repaired: comp.frameshifts_repaired.clone(),
+                aligned_fasta,
+                columns,
+            });
+        }
+        CohortHomologyLedger {
+            mode: self.mode,
+            mito_tga_trp: self.mito_tga_trp,
+            num_sequences: self.seqs.len(),
+            raw_null_cohort_nats: self.raw_null_cohort_nats,
+            provenance_cohort_nats: self.provenance_cohort_nats,
+            net_cohort_gain_nats: self.net_cohort_gain_nats,
+            num_homology_components: components.len(),
+            components,
+            pairwise_summary: Vec::new(),
+        }
+    }
 }
 
 /// Compute leaf descendant masks `desc[node_id][local_seq_idx]` for a component's tree.
@@ -672,11 +749,11 @@ pub fn render_component_matrix(
         .collect()
 }
 
-pub fn write_flat_fasta_file(path: &Path, arch: &HierarchicalArchive) -> Result<(), String> {
+pub fn write_flat_fasta_str(arch: &HierarchicalArchive, distinguish_horizon: bool) -> String {
     let mut buf = String::new();
     let multi = arch.components.len() > 1;
     for comp in &arch.components {
-        for (name, aln) in render_component_matrix(comp, &arch.seqs, arch.mode, false) {
+        for (name, aln) in render_component_matrix(comp, &arch.seqs, arch.mode, distinguish_horizon) {
             if multi {
                 buf.push_str(&format!(">{} component={}\n{}\n", name, comp.comp_id, aln));
             } else {
@@ -684,6 +761,12 @@ pub fn write_flat_fasta_file(path: &Path, arch: &HierarchicalArchive) -> Result<
             }
         }
     }
+    buf
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+pub fn write_flat_fasta_file(path: &Path, arch: &HierarchicalArchive) -> Result<(), String> {
+    let buf = write_flat_fasta_str(arch, false);
     fs::write(path, buf).map_err(|e| format!("Failed to write FASTA '{}': {e}", path.display()))
 }
 
@@ -1012,6 +1095,7 @@ pub fn write_hnex_str(arch: &HierarchicalArchive) -> String {
     out
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn write_hnex_file(path: &Path, arch: &HierarchicalArchive) -> Result<(), String> {
     let text = write_hnex_str(arch);
     fs::write(path, text).map_err(|e| format!("Failed to write .hnex '{}': {e}", path.display()))
@@ -1272,6 +1356,7 @@ pub fn read_hnex_str(text: &str) -> Result<HierarchicalArchive, String> {
     })
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn read_hnex_file(path: &Path) -> Result<HierarchicalArchive, String> {
     let text = fs::read_to_string(path)
         .map_err(|e| format!("Failed to read .hnex '{}': {e}", path.display()))?;
@@ -1282,6 +1367,7 @@ pub fn read_hnex_file(path: &Path) -> Result<HierarchicalArchive, String> {
 // Tier 2: Native SQLite (.hdb)
 // -----------------------------------------------------------------------------
 
+#[cfg(not(target_arch = "wasm32"))]
 const HDB_SCHEMA: &str = r#"
 PRAGMA synchronous = OFF;
 PRAGMA journal_mode = MEMORY;
@@ -1375,6 +1461,7 @@ CREATE TABLE frameshifts (
 );
 "#;
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn write_hdb_file(path: &Path, arch: &HierarchicalArchive) -> Result<(), String> {
     if path.exists() {
         fs::remove_file(path)
@@ -1531,6 +1618,7 @@ pub fn write_hdb_file(path: &Path, arch: &HierarchicalArchive) -> Result<(), Str
     Ok(())
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 fn read_hdb_meta(db: &SqliteDb) -> Result<HashMap<String, String>, String> {
     let st = db.prepare("SELECT key, val FROM meta;")?;
     let mut map = HashMap::new();
@@ -1540,6 +1628,7 @@ fn read_hdb_meta(db: &SqliteDb) -> Result<HashMap<String, String>, String> {
     Ok(map)
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 fn load_hdb_component(
     db: &SqliteDb,
     comp_id: usize,
@@ -1719,6 +1808,7 @@ fn load_hdb_component(
     })
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn read_hdb_file(path: &Path) -> Result<HierarchicalArchive, String> {
     let db = SqliteDb::open(path, SQLITE_OPEN_READONLY)?;
     let meta = read_hdb_meta(&db)?;
@@ -1795,6 +1885,7 @@ pub fn read_hdb_file(path: &Path) -> Result<HierarchicalArchive, String> {
     })
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn is_hdb_file(path: &Path) -> bool {
     if path
         .extension()
@@ -1809,6 +1900,7 @@ pub fn is_hdb_file(path: &Path) -> bool {
     false
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn read_archive_auto(path: &Path) -> Result<HierarchicalArchive, String> {
     if is_hdb_file(path) {
         read_hdb_file(path)
@@ -2514,6 +2606,7 @@ pub fn subset_archive(
 
 /// Indexed SQLite subsetting (`2 -> 1`): queries `sequences`, `idx_segments_spatial`, and
 /// `idx_blocks_cols` directly so whole-genome/large `.hdb` files load only matching components and loci.
+#[cfg(not(target_arch = "wasm32"))]
 pub fn subset_hdb_file(path: &Path, spec: &SubsetSpec) -> Result<HierarchicalArchive, String> {
     let db = SqliteDb::open(path, SQLITE_OPEN_READONLY)?;
     let meta = read_hdb_meta(&db)?;

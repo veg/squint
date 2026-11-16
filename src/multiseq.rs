@@ -1,6 +1,11 @@
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
 
+#[cfg(not(target_arch = "wasm32"))]
+use rayon::join;
+#[cfg(not(target_arch = "wasm32"))]
 use rayon::prelude::*;
+#[cfg(target_arch = "wasm32")]
+use crate::wasm_rayon_shim::*;
 use serde::{Deserialize, Serialize};
 
 use crate::alphabet::{
@@ -381,6 +386,7 @@ fn build_bionj_tree(
             let len_v = (d_uv - len_u).max(0.0);
             (bp, len_u, len_v)
         } else {
+            #[cfg(not(target_arch = "wasm32"))]
             let (_, _, bp) = (0..k)
                 .into_par_iter()
                 .map(|a| {
@@ -404,6 +410,38 @@ fn build_bionj_tree(
                 })
                 .reduce(
                     || (f64::INFINITY, f64::INFINITY, (usize::MAX, usize::MAX)),
+                    |x, y| {
+                        if better_bionj(x.0, x.1, x.2, y.0, y.1, y.2) {
+                            x
+                        } else {
+                            y
+                        }
+                    },
+                );
+            #[cfg(target_arch = "wasm32")]
+            let (_, _, bp) = (0..k)
+                .into_par_iter()
+                .map(|a| {
+                    let su = alive[a].0;
+                    let ru = r_sum_by_slot[su];
+                    let d_row = &dmat[su * m..(su + 1) * m];
+                    let mut l_q = f64::INFINITY;
+                    let mut l_d = f64::INFINITY;
+                    let mut l_bp = (a, a + 1);
+                    for b in (a + 1)..k {
+                        let sv = alive[b].0;
+                        let d_uv = d_row[sv];
+                        let q = km2 * d_uv - ru - r_sum_by_slot[sv];
+                        if better_bionj(q, d_uv, (a, b), l_q, l_d, l_bp) {
+                            l_q = q;
+                            l_d = d_uv;
+                            l_bp = (a, b);
+                        }
+                    }
+                    (l_q, l_d, l_bp)
+                })
+                .fold(
+                    (f64::INFINITY, f64::INFINITY, (usize::MAX, usize::MAX)),
                     |x, y| {
                         if better_bionj(x.0, x.1, x.2, y.0, y.1, y.2) {
                             x
@@ -2175,7 +2213,7 @@ fn assemble_profile_on_tree(
     let right_id = rec.right_node_id.expect("internal node missing right_node_id");
     let (pl, pr) = if m_comp >= 16 && !tree_nodes[left_id].is_leaf && !tree_nodes[right_id].is_leaf
     {
-        rayon::join(
+        join(
             || {
                 assemble_profile_on_tree(
                     left_id,

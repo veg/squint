@@ -5,6 +5,742 @@ pub mod multiseq;
 pub mod storage;
 pub mod transducer;
 
+#[cfg(target_arch = "wasm32")]
+use wasm_bindgen::prelude::*;
+
+#[cfg(target_arch = "wasm32")]
+pub(crate) mod wasm_rayon_shim {
+    pub trait ParSliceExt<T> {
+        fn par_iter(&self) -> std::slice::Iter<'_, T>;
+    }
+    impl<T> ParSliceExt<T> for [T] {
+        #[inline]
+        fn par_iter(&self) -> std::slice::Iter<'_, T> {
+            self.iter()
+        }
+    }
+
+    pub trait ParSliceMutExt<T> {
+        fn par_chunks_mut(&mut self, chunk_size: usize) -> std::slice::ChunksMut<'_, T>;
+    }
+    impl<T> ParSliceMutExt<T> for [T] {
+        #[inline]
+        fn par_chunks_mut(&mut self, chunk_size: usize) -> std::slice::ChunksMut<'_, T> {
+            self.chunks_mut(chunk_size)
+        }
+    }
+
+    pub trait IntoParIterExt: IntoIterator + Sized {
+        #[inline]
+        fn into_par_iter(self) -> Self::IntoIter {
+            self.into_iter()
+        }
+    }
+    impl<T> IntoParIterExt for Vec<T> {}
+    impl IntoParIterExt for std::ops::Range<usize> {}
+
+    #[inline]
+    pub fn join<A, B, RA, RB>(a: A, b: B) -> (RA, RB)
+    where
+        A: FnOnce() -> RA,
+        B: FnOnce() -> RB,
+    {
+        (a(), b())
+    }
+}
+
+pub fn evaluate_against_reference_msa(
+    ref_aligned: &[(String, Vec<u8>)],
+    inferred_fasta: &[(String, String)],
+    mode: alphabet::SeqMode,
+    frameshifts: &[transducer::FrameshiftEvent],
+) -> Option<(f64, f64, f64, f64)> {
+    let step = if mode == alphabet::SeqMode::Codon { 3 } else { 1 };
+    if ref_aligned.len() < 2 || ref_aligned.len() != inferred_fasta.len() {
+        return None;
+    }
+    let ref_len = ref_aligned[0].1.len();
+    if ref_len == 0 || ref_len % step != 0 || !ref_aligned.iter().all(|x| x.1.len() == ref_len) {
+        return None;
+    }
+
+    let inf_map: std::collections::HashMap<&str, &[u8]> = inferred_fasta
+        .iter()
+        .map(|(id, s)| (id.as_str(), s.as_bytes()))
+        .collect();
+
+    let n = ref_aligned.len();
+    let mut unit_maps: Vec<Vec<usize>> = Vec::with_capacity(n);
+    for s in 0..n {
+        let (id_s, aln_s) = &ref_aligned[s];
+        let inf_s = *inf_map.get(id_s.as_str())?;
+        if inf_s.len() % step != 0 {
+            return None;
+        }
+        let norm_nt = |b: u8| -> u8 {
+            let u = b.to_ascii_uppercase();
+            if u == b'U' {
+                b'T'
+            } else {
+                u
+            }
+        };
+        let orig_ug_bytes: Vec<u8> = aln_s
+            .iter()
+            .copied()
+            .filter(|&b| b != b'-' && b != b'.' && b != b'?')
+            .map(norm_nt)
+            .collect();
+        let inf_ug_bytes: Vec<u8> = inf_s
+            .chunks_exact(step)
+            .filter(|sl| sl.iter().all(|&b| b != b'-' && b != b'.' && b != b'?'))
+            .flat_map(|sl| sl.iter().copied().map(norm_nt))
+            .collect();
+        let orig_ug_nt = orig_ug_bytes.len();
+        let inf_ug_units = inf_ug_bytes.len() / step;
+        if mode == alphabet::SeqMode::Codon && orig_ug_nt != inf_ug_bytes.len() {
+            let mut keep = vec![true; orig_ug_nt];
+            for ev in frameshifts.iter().filter(|ev| ev.seq_id == *id_s) {
+                let end = (ev.nt_pos + ev.phase_shift as usize).min(orig_ug_nt);
+                for k in ev.nt_pos.min(orig_ug_nt)..end {
+                    keep[k] = false;
+                }
+            }
+            let rem: Vec<usize> = keep
+                .into_iter()
+                .enumerate()
+                .filter_map(|(idx, ok)| if ok { Some(idx) } else { None })
+                .collect();
+            if rem.len() >= inf_ug_bytes.len() && rem.len() - inf_ug_bytes.len() <= 6 {
+                let max_lead = rem.len() - inf_ug_bytes.len();
+                let matched_lead = (0..=max_lead).find(|&lead| {
+                    (0..inf_ug_bytes.len())
+                        .all(|j| orig_ug_bytes[rem[lead + j]] == inf_ug_bytes[j])
+                });
+                let lead = matched_lead.unwrap_or(0);
+                unit_maps.push((0..inf_ug_units).map(|k| rem[lead + 3 * k] / 3).collect());
+                continue;
+            }
+        }
+        unit_maps.push((0..inf_ug_units).collect());
+    }
+
+    let mut total_tp = 0usize;
+    let mut total_ref = 0usize;
+    let mut total_inf = 0usize;
+
+    for a in 0..n {
+        let (id_a, aln_a) = &ref_aligned[a];
+        let inf_a = *inf_map.get(id_a.as_str())?;
+        for b in (a + 1)..n {
+            let (id_b, aln_b) = &ref_aligned[b];
+            let inf_b = *inf_map.get(id_b.as_str())?;
+            if inf_a.len() != inf_b.len() {
+                return None;
+            }
+
+            let ref_pairs: std::collections::HashSet<(usize, usize)> =
+                alphabet::extract_reference_homologous_pairs(aln_a, aln_b, step)
+                    .into_iter()
+                    .collect();
+            let inf_pairs: std::collections::HashSet<(usize, usize)> =
+                alphabet::extract_reference_homologous_pairs(inf_a, inf_b, step)
+                    .into_iter()
+                    .map(|(ua, ub)| (unit_maps[a][ua], unit_maps[b][ub]))
+                    .collect();
+
+            let tp = ref_pairs.intersection(&inf_pairs).count();
+            total_tp += tp;
+            total_ref += ref_pairs.len();
+            total_inf += inf_pairs.len();
+        }
+    }
+
+    let n_ref_cols = ref_len / step;
+    let mut ref_col_set: std::collections::HashSet<Vec<Option<usize>>> =
+        std::collections::HashSet::new();
+    let mut cursors = vec![0usize; n];
+    for c in 0..n_ref_cols {
+        let mut sig = Vec::with_capacity(n);
+        let mut present = 0usize;
+        for s in 0..n {
+            let sl = &ref_aligned[s].1[c * step..(c + 1) * step];
+            let has = sl.iter().all(|&b| b != b'-' && b != b'.' && b != b'?');
+            if has {
+                sig.push(Some(cursors[s]));
+                cursors[s] += 1;
+                present += 1;
+            } else {
+                sig.push(None);
+            }
+        }
+        if present >= 2 {
+            ref_col_set.insert(sig);
+        }
+    }
+
+    let inf_first = inf_map.get(ref_aligned[0].0.as_str())?;
+    let n_inf_cols = inf_first.len() / step;
+    let mut inf_cursors = vec![0usize; n];
+    let mut matched_cols = 0usize;
+    for c in 0..n_inf_cols {
+        let mut sig = Vec::with_capacity(n);
+        let mut present = 0usize;
+        for s in 0..n {
+            let inf_s = inf_map.get(ref_aligned[s].0.as_str())?;
+            let sl = &inf_s[c * step..(c + 1) * step];
+            let has = sl.iter().all(|&b| b != b'-' && b != b'.' && b != b'?');
+            if has {
+                sig.push(Some(unit_maps[s][inf_cursors[s]]));
+                inf_cursors[s] += 1;
+                present += 1;
+            } else {
+                sig.push(None);
+            }
+        }
+        if present >= 2 && ref_col_set.contains(&sig) {
+            matched_cols += 1;
+        }
+    }
+
+    let prec = if total_inf > 0 {
+        total_tp as f64 / total_inf as f64
+    } else {
+        1.0
+    };
+    let rec = if total_ref > 0 {
+        total_tp as f64 / total_ref as f64
+    } else {
+        1.0
+    };
+    let f1 = if prec + rec > 0.0 {
+        2.0 * prec * rec / (prec + rec)
+    } else {
+        0.0
+    };
+    let tc = if !ref_col_set.is_empty() {
+        matched_cols as f64 / ref_col_set.len() as f64
+    } else {
+        1.0
+    };
+
+    Some((prec, rec, f1, tc))
+}
+
+fn parse_mode_str(mode_str: &str) -> Result<Option<alphabet::SeqMode>, String> {
+    match mode_str.trim().to_ascii_lowercase().as_str() {
+        "" | "auto" => Ok(None),
+        "codon" => Ok(Some(alphabet::SeqMode::Codon)),
+        "protein" | "aa" => Ok(Some(alphabet::SeqMode::Protein)),
+        "dna" | "nt" => Ok(Some(alphabet::SeqMode::Dna)),
+        other => Err(format!(
+            "Unknown sequence mode '{}'. Expected auto|codon|protein|dna.",
+            other
+        )),
+    }
+}
+
+pub fn parse_region_spec_str(s: &str) -> Result<(String, usize, usize), String> {
+    let (seq_name, range_s) = s
+        .rsplit_once(':')
+        .ok_or_else(|| format!("Expected '<seq>:<start>-<end>', got '{s}'"))?;
+    let (a_s, b_s) = range_s
+        .split_once('-')
+        .ok_or_else(|| format!("Expected '<start>-<end>' in region '{s}'"))?;
+    let a: usize = a_s
+        .parse()
+        .map_err(|e| format!("Invalid start coordinate in '{s}': {e}"))?;
+    let b: usize = b_s
+        .parse()
+        .map_err(|e| format!("Invalid end coordinate in '{s}': {e}"))?;
+    if a == 0 || b < a {
+        return Err(format!(
+            "Region must be 1-based inclusive with start <= end, got '{s}'"
+        ));
+    }
+    Ok((seq_name.to_string(), a, b))
+}
+
+#[derive(serde::Serialize)]
+pub struct Stage0TaxonQa {
+    pub index: usize,
+    pub id: String,
+    pub raw_nt_or_aa_len: usize,
+    pub token_len: usize,
+    pub non_ambig_len: usize,
+    pub ambig_pct: f64,
+    pub gc_or_hydro: f64,
+    pub l0_nats: f64,
+    pub bits_per_token: f64,
+    pub mean_repeat_weight: f64,
+    pub repeat_sparkline: Vec<f64>,
+    pub len_mod_3: usize,
+    pub has_internal_stop: bool,
+    pub is_duplicate: bool,
+    pub duplicate_of: Option<String>,
+    pub admitted: bool,
+    pub raw_preview: String,
+}
+
+#[derive(serde::Serialize)]
+pub struct Stage0Report {
+    pub mode: alphabet::SeqMode,
+    pub mito_tga_trp: bool,
+    pub total_sequences: usize,
+    pub admitted_sequences: usize,
+    pub duplicate_count: usize,
+    pub frameshift_candidate_count: usize,
+    pub min_raw_len: usize,
+    pub max_raw_len: usize,
+    pub total_l0_nats: f64,
+    pub mean_repeat_weight: f64,
+    pub has_ref_msa: bool,
+    pub ref_cols: usize,
+    pub taxa: Vec<Stage0TaxonQa>,
+}
+
+fn extract_sequences_for_stage0(
+    input_text: &str,
+) -> Result<(Vec<alphabet::RawSeq>, Vec<(String, Vec<u8>)>, Option<alphabet::SeqMode>), String> {
+    if input_text.contains("BEGIN HOMOLOGY;") {
+        let arch = storage::read_hnex_str(input_text)?;
+        let raw_seqs: Vec<alphabet::RawSeq> = arch
+            .seqs
+            .iter()
+            .map(|s| alphabet::RawSeq {
+                id: s.name.clone(),
+                raw_bytes: s.raw_seq.as_bytes().to_vec(),
+            })
+            .collect();
+        return Ok((raw_seqs, Vec::new(), Some(arch.mode)));
+    }
+    let (raw_seqs, ref_aligned) = alphabet::parse_sequences_str(input_text);
+    if raw_seqs.is_empty() {
+        return Err("No valid sequences found in input.".to_string());
+    }
+    Ok((raw_seqs, ref_aligned, None))
+}
+
+pub fn inspect_stage0_json(
+    input_text: &str,
+    mode_str: &str,
+    deduplicate: bool,
+) -> Result<String, String> {
+    let explicit_mode = parse_mode_str(mode_str)?;
+    let (raw_seqs, ref_aligned, hnex_mode) = extract_sequences_for_stage0(input_text)?;
+    let gc = alphabet::GeneticCode::for_cohort(&raw_seqs);
+    let mode = explicit_mode
+        .or(hnex_mode)
+        .unwrap_or_else(|| alphabet::detect_seq_mode(&raw_seqs, &gc));
+
+    let has_ref_msa = ref_aligned.len() >= 2
+        && ref_aligned[0].1.len() > 0
+        && ref_aligned.iter().all(|x| x.1.len() == ref_aligned[0].1.len())
+        && ref_aligned
+            .iter()
+            .any(|x| x.1.iter().any(|&b| b == b'-' || b == b'.'));
+    let ref_cols = if has_ref_msa {
+        ref_aligned[0].1.len()
+    } else {
+        0
+    };
+
+    let mut seen_canon: std::collections::HashMap<Vec<u8>, String> =
+        std::collections::HashMap::new();
+    let mut taxa = Vec::with_capacity(raw_seqs.len());
+    let mut duplicate_count = 0usize;
+    let mut frameshift_candidate_count = 0usize;
+    let mut admitted_sequences = 0usize;
+    let mut min_raw_len = usize::MAX;
+    let mut max_raw_len = 0usize;
+    let mut total_l0_nats = 0.0f64;
+    let mut sum_rep_weight = 0.0f64;
+    let mut sum_rep_len = 0usize;
+
+    for (idx, raw) in raw_seqs.iter().enumerate() {
+        let canon: Vec<u8> = raw
+            .raw_bytes
+            .iter()
+            .filter(|b| b.is_ascii_alphabetic())
+            .map(|b| {
+                let u = b.to_ascii_uppercase();
+                if mode != alphabet::SeqMode::Protein && u == b'U' {
+                    b'T'
+                } else {
+                    u
+                }
+            })
+            .collect();
+        let (is_duplicate, duplicate_of) = if let Some(first_id) = seen_canon.get(&canon) {
+            duplicate_count += 1;
+            (true, Some(first_id.clone()))
+        } else {
+            seen_canon.insert(canon, raw.id.clone());
+            (false, None)
+        };
+        let admitted = !deduplicate || !is_duplicate;
+        if admitted {
+            admitted_sequences += 1;
+        }
+
+        let enc = alphabet::EncodedSeq::from_raw(raw, mode, &gc);
+        let prep = transducer::PreparedSeq::new(enc, &gc);
+
+        let raw_len = if mode == alphabet::SeqMode::Protein {
+            raw.raw_bytes.len()
+        } else {
+            prep.seq.nt_tokens.len().max(raw.raw_bytes.len())
+        };
+        min_raw_len = min_raw_len.min(raw_len);
+        max_raw_len = max_raw_len.max(raw_len);
+
+        let token_len = prep.seq.len();
+        let non_ambig_len = prep.seq.non_ambig_len;
+        let ambig_pct = if token_len > 0 {
+            100.0 * (token_len.saturating_sub(non_ambig_len) as f64) / (token_len as f64)
+        } else {
+            0.0
+        };
+
+        let gc_or_hydro = if mode == alphabet::SeqMode::Protein {
+            let mut h_sum = 0.0f64;
+            let mut h_n = 0usize;
+            for (&tok, &mask) in prep.seq.tokens.iter().zip(prep.seq.ambig_masks.iter()) {
+                if mask.count_ones() == 1 && (tok as usize) < 20 {
+                    h_sum += alphabet::AA_PROPERTIES[tok as usize][0];
+                    h_n += 1;
+                }
+            }
+            if h_n > 0 {
+                h_sum / (h_n as f64)
+            } else {
+                0.0
+            }
+        } else {
+            let mut gc_cnt = 0usize;
+            let mut nt_cnt = 0usize;
+            for &nt in &prep.seq.nt_tokens {
+                if nt < 4 {
+                    nt_cnt += 1;
+                    if nt == 1 || nt == 2 {
+                        gc_cnt += 1;
+                    }
+                }
+            }
+            if nt_cnt > 0 {
+                100.0 * (gc_cnt as f64) / (nt_cnt as f64)
+            } else {
+                0.0
+            }
+        };
+
+        let rw = &prep.prof.site_repeat_weight;
+        let mean_rw = if !rw.is_empty() {
+            let s: f64 = rw.iter().sum();
+            sum_rep_weight += s;
+            sum_rep_len += rw.len();
+            s / (rw.len() as f64)
+        } else {
+            0.0
+        };
+
+        let n_bins = token_len.clamp(1, 96);
+        let mut repeat_sparkline = Vec::with_capacity(n_bins);
+        if token_len > 0 {
+            for b in 0..n_bins {
+                let lo = (b * token_len) / n_bins;
+                let hi = (((b + 1) * token_len) / n_bins).max(lo + 1).min(token_len);
+                let mx = rw[lo..hi].iter().copied().fold(0.0f64, f64::max);
+                repeat_sparkline.push((mx * 1000.0).round() / 1000.0);
+            }
+        }
+
+        let len_mod_3 = if mode == alphabet::SeqMode::Codon {
+            prep.seq.nt_tokens.len() % 3
+        } else {
+            0
+        };
+        let has_internal_stop = prep.seq.has_unambiguous_internal_stop;
+        if mode == alphabet::SeqMode::Codon && (len_mod_3 != 0 || has_internal_stop) {
+            frameshift_candidate_count += 1;
+        }
+
+        let bits_per_token = if token_len > 0 {
+            (prep.l0_nats / std::f64::consts::LN_2) / (token_len as f64)
+        } else {
+            0.0
+        };
+        if admitted {
+            total_l0_nats += prep.l0_nats;
+        }
+
+        let prev_len = raw.raw_bytes.len().min(300);
+        let raw_preview = String::from_utf8_lossy(&raw.raw_bytes[..prev_len]).to_string();
+
+        taxa.push(Stage0TaxonQa {
+            index: idx,
+            id: raw.id.clone(),
+            raw_nt_or_aa_len: raw_len,
+            token_len,
+            non_ambig_len,
+            ambig_pct,
+            gc_or_hydro,
+            l0_nats: prep.l0_nats,
+            bits_per_token,
+            mean_repeat_weight: mean_rw,
+            repeat_sparkline,
+            len_mod_3,
+            has_internal_stop,
+            is_duplicate,
+            duplicate_of,
+            admitted,
+            raw_preview,
+        });
+    }
+
+    if min_raw_len == usize::MAX {
+        min_raw_len = 0;
+    }
+    let mean_repeat_weight = if sum_rep_len > 0 {
+        sum_rep_weight / (sum_rep_len as f64)
+    } else {
+        0.0
+    };
+
+    let rep = Stage0Report {
+        mode,
+        mito_tga_trp: gc.mito_tga_trp,
+        total_sequences: raw_seqs.len(),
+        admitted_sequences,
+        duplicate_count,
+        frameshift_candidate_count,
+        min_raw_len,
+        max_raw_len,
+        total_l0_nats,
+        mean_repeat_weight,
+        has_ref_msa,
+        ref_cols,
+        taxa,
+    };
+    serde_json::to_string(&rep).map_err(|e| format!("Failed serializing Stage 0 report: {e}"))
+}
+
+#[derive(serde::Serialize)]
+pub struct RefAuditMetrics {
+    pub pair_prec: f64,
+    pub pair_recall_q: f64,
+    pub pair_f1: f64,
+    pub exact_col_tc: f64,
+}
+
+#[derive(serde::Serialize)]
+pub struct AlignPayload {
+    pub ledger: multiseq::CohortHomologyLedger,
+    pub ref_audit: Option<RefAuditMetrics>,
+    pub rle_blocks_total: usize,
+    pub horizon_fasta_by_comp: Vec<Vec<(String, String)>>,
+}
+
+#[derive(serde::Serialize)]
+pub struct SubsetPayload {
+    pub num_seqs: usize,
+    pub num_components: usize,
+    pub total_cols: usize,
+    pub total_blocks: usize,
+    pub inspect_summary: String,
+    pub fasta_text: String,
+    pub horizon_fasta_text: String,
+    pub hnex_text: String,
+    pub ledger: multiseq::CohortHomologyLedger,
+}
+
+fn build_align_payload(
+    ledger: multiseq::CohortHomologyLedger,
+    arch: &storage::HierarchicalArchive,
+    ref_audit: Option<RefAuditMetrics>,
+) -> AlignPayload {
+    let rle_blocks_total = arch.components.iter().map(|c| c.blocks.len()).sum();
+    let horizon_fasta_by_comp = arch
+        .components
+        .iter()
+        .map(|c| storage::render_component_matrix(c, &arch.seqs, arch.mode, true))
+        .collect();
+    AlignPayload {
+        ledger,
+        ref_audit,
+        rle_blocks_total,
+        horizon_fasta_by_comp,
+    }
+}
+
+pub fn align_cohort_with_archive(
+    input_text: &str,
+    mode_str: &str,
+    eval_ref: bool,
+) -> Result<(String, storage::HierarchicalArchive), String> {
+    let explicit_mode = parse_mode_str(mode_str)?;
+    let (raw_seqs, ref_aligned) = alphabet::parse_sequences_str(input_text);
+    if raw_seqs.is_empty() {
+        return Err("No sequences found in input.".to_string());
+    }
+    let ledger = multiseq::analyze_unaligned_cohort(&raw_seqs, explicit_mode);
+    let arch = storage::HierarchicalArchive::from_ledger(&ledger);
+    let ref_audit = if eval_ref && ledger.components.len() == 1 {
+        evaluate_against_reference_msa(
+            &ref_aligned,
+            &ledger.components[0].aligned_fasta,
+            ledger.mode,
+            &ledger.components[0].frameshifts_repaired,
+        )
+        .map(|(pair_prec, pair_recall_q, pair_f1, exact_col_tc)| RefAuditMetrics {
+            pair_prec,
+            pair_recall_q,
+            pair_f1,
+            exact_col_tc,
+        })
+    } else {
+        None
+    };
+    let payload = build_align_payload(ledger, &arch, ref_audit);
+    let json = serde_json::to_string(&payload)
+        .map_err(|e| format!("Failed serializing alignment payload: {e}"))?;
+    Ok((json, arch))
+}
+
+pub fn load_hnex_with_archive(
+    hnex_text: &str,
+) -> Result<(String, storage::HierarchicalArchive), String> {
+    let arch = storage::read_hnex_str(hnex_text)?;
+    let ledger = arch.to_ledger();
+    let payload = build_align_payload(ledger, &arch, None);
+    let json = serde_json::to_string(&payload)
+        .map_err(|e| format!("Failed serializing .hnex archive payload: {e}"))?;
+    Ok((json, arch))
+}
+
+pub fn subset_archive_json(
+    arch: &storage::HierarchicalArchive,
+    comp_id: i32,
+    clade: &str,
+    taxa_csv: &str,
+    region_str: &str,
+    global_core_only: bool,
+) -> Result<String, String> {
+    let mut spec = storage::SubsetSpec {
+        component_id: if comp_id >= 0 {
+            Some(comp_id as usize)
+        } else {
+            None
+        },
+        clade: if clade.trim().is_empty() {
+            None
+        } else {
+            Some(clade.trim().to_string())
+        },
+        taxa: None,
+        region: None,
+        global_core_only,
+    };
+    let taxa: Vec<String> = taxa_csv
+        .split(',')
+        .map(str::trim)
+        .filter(|s| !s.is_empty())
+        .map(str::to_string)
+        .collect();
+    if !taxa.is_empty() {
+        spec.taxa = Some(taxa);
+    }
+    if !region_str.trim().is_empty() {
+        spec.region = Some(parse_region_spec_str(region_str.trim())?);
+    }
+
+    let sub = storage::subset_archive(arch, &spec)?;
+    let payload = SubsetPayload {
+        num_seqs: sub.seqs.len(),
+        num_components: sub.components.len(),
+        total_cols: sub.components.iter().map(|c| c.num_columns).sum(),
+        total_blocks: sub.components.iter().map(|c| c.blocks.len()).sum(),
+        inspect_summary: storage::inspect_archive_summary(&sub),
+        fasta_text: storage::write_flat_fasta_str(&sub, false),
+        horizon_fasta_text: storage::write_flat_fasta_str(&sub, true),
+        hnex_text: storage::write_hnex_str(&sub),
+        ledger: sub.to_ledger(),
+    };
+    serde_json::to_string(&payload).map_err(|e| format!("Failed serializing subset payload: {e}"))
+}
+
+#[cfg(target_arch = "wasm32")]
+#[wasm_bindgen]
+pub struct WasmSquint {
+    last_arch: Option<storage::HierarchicalArchive>,
+}
+
+#[cfg(target_arch = "wasm32")]
+#[wasm_bindgen]
+impl WasmSquint {
+    #[wasm_bindgen(constructor)]
+    pub fn new() -> Self {
+        Self { last_arch: None }
+    }
+
+    pub fn inspect_stage0(
+        &self,
+        input_text: &str,
+        mode_str: &str,
+        deduplicate: bool,
+    ) -> Result<String, JsValue> {
+        inspect_stage0_json(input_text, mode_str, deduplicate).map_err(|e| JsValue::from_str(&e))
+    }
+
+    pub fn align_cohort(
+        &mut self,
+        input_text: &str,
+        mode_str: &str,
+        eval_ref: bool,
+    ) -> Result<String, JsValue> {
+        let (json, arch) = align_cohort_with_archive(input_text, mode_str, eval_ref)
+            .map_err(|e| JsValue::from_str(&e))?;
+        self.last_arch = Some(arch);
+        Ok(json)
+    }
+
+    pub fn load_hnex(&mut self, hnex_text: &str) -> Result<String, JsValue> {
+        let (json, arch) =
+            load_hnex_with_archive(hnex_text).map_err(|e| JsValue::from_str(&e))?;
+        self.last_arch = Some(arch);
+        Ok(json)
+    }
+
+    pub fn export_cached_hnex(&self) -> Result<String, JsValue> {
+        let arch = self.last_arch.as_ref().ok_or_else(|| {
+            JsValue::from_str("No alignment archive loaded in WASM worker cache.")
+        })?;
+        Ok(storage::write_hnex_str(arch))
+    }
+
+    pub fn export_cached_fasta(&self, distinguish_horizon: bool) -> Result<String, JsValue> {
+        let arch = self.last_arch.as_ref().ok_or_else(|| {
+            JsValue::from_str("No alignment archive loaded in WASM worker cache.")
+        })?;
+        Ok(storage::write_flat_fasta_str(arch, distinguish_horizon))
+    }
+
+    pub fn subset_cached(
+        &self,
+        comp_id: i32,
+        clade: &str,
+        taxa_csv: &str,
+        region_str: &str,
+        global_core_only: bool,
+    ) -> Result<String, JsValue> {
+        let arch = self.last_arch.as_ref().ok_or_else(|| {
+            JsValue::from_str("No alignment archive loaded in WASM worker cache.")
+        })?;
+        subset_archive_json(arch, comp_id, clade, taxa_csv, region_str, global_core_only)
+            .map_err(|e| JsValue::from_str(&e))
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::alphabet::{
@@ -3100,5 +3836,42 @@ mod tests {
             let degapped: Vec<u8> = aln.bytes().filter(|&b| b != b'-').collect();
             assert_eq!(orig.raw_bytes, degapped);
         }
+    }
+
+    #[test]
+    fn test_wasm_json_entrypoints_and_hnex_to_ledger() {
+        let fasta = ">SeqA\nATGGCTGAAGCTACTCAGATGGTTCTGAAAGACTTTATGGGTACTGAAGTTGCTTAA\n\
+                     >SeqB\nATGGCTGAAGCCACCCAGATGGTTCTGAAGGACTTTATGGGCACTGAAGTTGCCTAA\n\
+                     >SeqA_dup\nATGGCTGAAGCTACTCAGATGGTTCTGAAAGACTTTATGGGTACTGAAGTTGCTTAA\n";
+        let qa_json = crate::inspect_stage0_json(fasta, "auto", true).unwrap();
+        let qa_val: serde_json::Value = serde_json::from_str(&qa_json).unwrap();
+        assert_eq!(qa_val["total_sequences"], 3);
+        assert_eq!(qa_val["duplicate_count"], 1);
+        assert_eq!(qa_val["admitted_sequences"], 2);
+        assert_eq!(qa_val["mode"], "Codon");
+
+        let (aln_json, arch) = crate::align_cohort_with_archive(fasta, "codon", false).unwrap();
+        let aln_val: serde_json::Value = serde_json::from_str(&aln_json).unwrap();
+        assert_eq!(aln_val["ledger"]["num_homology_components"], 1);
+
+        let hnex_str = crate::storage::write_hnex_str(&arch);
+        let (reloaded_json, _) = crate::load_hnex_with_archive(&hnex_str).unwrap();
+        let reloaded_val: serde_json::Value = serde_json::from_str(&reloaded_json).unwrap();
+        assert_eq!(
+            reloaded_val["ledger"]["components"][0]["aligned_fasta"],
+            aln_val["ledger"]["components"][0]["aligned_fasta"]
+        );
+
+        let sub_json =
+            crate::subset_archive_json(&arch, 0, "", "SeqA,SeqB", "SeqA:1-10", true).unwrap();
+        let sub_val: serde_json::Value = serde_json::from_str(&sub_json).unwrap();
+        assert_eq!(sub_val["num_seqs"], 2);
+        assert_eq!(sub_val["total_cols"], 10);
+
+        let phylip = " 2 9\nTax1      ATGGCTGAA\nTax2      ATGGCCGAA\n";
+        let (phy_raw, _) = parse_sequences_str(phylip);
+        assert_eq!(phy_raw.len(), 2);
+        assert_eq!(phy_raw[0].id, "Tax1");
+        assert_eq!(phy_raw[1].raw_bytes, b"ATGGCCGAA");
     }
 }

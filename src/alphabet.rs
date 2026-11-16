@@ -720,9 +720,94 @@ pub fn parse_sequences_str(input: &str) -> (Vec<RawSeq>, Vec<(String, Vec<u8>)>)
     let trimmed = input.trim_start();
     if trimmed.len() >= 6 && trimmed[..6].eq_ignore_ascii_case("#NEXUS") {
         parse_nexus_str(trimmed)
+    } else if !trimmed.starts_with('>') && is_phylip_header_str(trimmed) {
+        parse_phylip_str(trimmed)
     } else {
         parse_fasta_str(trimmed)
     }
+}
+
+fn is_phylip_header_str(trimmed: &str) -> bool {
+    let Some(first) = trimmed
+        .split(|c| c == '\n' || c == '\r')
+        .map(str::trim)
+        .find(|l| !l.is_empty())
+    else {
+        return false;
+    };
+    let mut parts = first.split_whitespace();
+    let Some(a) = parts.next() else { return false };
+    let Some(b) = parts.next() else { return false };
+    if parts.next().is_some() {
+        return false;
+    }
+    matches!((a.parse::<usize>(), b.parse::<usize>()), (Ok(n), Ok(l)) if n >= 1 && l >= 1)
+}
+
+fn parse_phylip_str(input: &str) -> (Vec<RawSeq>, Vec<(String, Vec<u8>)>) {
+    let mut lines = input
+        .split(|c| c == '\n' || c == '\r')
+        .map(str::trim)
+        .filter(|l| !l.is_empty());
+    let Some(hdr) = lines.next() else {
+        return (Vec::new(), Vec::new());
+    };
+    let mut parts = hdr.split_whitespace();
+    let ntax: usize = parts.next().and_then(|s| s.parse().ok()).unwrap_or(0);
+    let _nchar: usize = parts.next().and_then(|s| s.parse().ok()).unwrap_or(0);
+    if ntax == 0 {
+        return (Vec::new(), Vec::new());
+    }
+
+    let rem: Vec<&str> = lines.collect();
+    if rem.is_empty() {
+        return (Vec::new(), Vec::new());
+    }
+
+    let mut ids: Vec<String> = Vec::with_capacity(ntax);
+    let mut seqs: Vec<Vec<u8>> = Vec::with_capacity(ntax);
+    let mut idx = 0usize;
+
+    // First block: one row per taxon with `<id> <seq>`
+    while idx < rem.len() && ids.len() < ntax {
+        let mut sp = rem[idx].splitn(2, char::is_whitespace);
+        let id = sp.next().unwrap_or("seq").trim().to_string();
+        let body = sp.next().unwrap_or("");
+        let buf: Vec<u8> = body.bytes().filter(|b| !b.is_ascii_whitespace()).collect();
+        idx += 1;
+        ids.push(id);
+        seqs.push(buf);
+    }
+
+    // Handle interleaved continuation blocks OR sequential continuation lines
+    let mut t = 0usize;
+    while idx < rem.len() {
+        let cleaned: Vec<u8> = rem[idx]
+            .bytes()
+            .filter(|b| !b.is_ascii_whitespace())
+            .collect();
+        if !cleaned.is_empty() && !ids.is_empty() {
+            seqs[t % ids.len()].extend_from_slice(&cleaned);
+            t += 1;
+        }
+        idx += 1;
+    }
+
+    let mut raw_seqs = Vec::with_capacity(ids.len());
+    let mut aligned_seqs = Vec::with_capacity(ids.len());
+    for (id, aln) in ids.into_iter().zip(seqs.into_iter()) {
+        let raw_bytes = aln
+            .iter()
+            .copied()
+            .filter(|&b| b != b'-' && b != b'.' && b != b'?' && !b.is_ascii_whitespace())
+            .collect();
+        raw_seqs.push(RawSeq {
+            id: id.clone(),
+            raw_bytes,
+        });
+        aligned_seqs.push((id, aln));
+    }
+    (raw_seqs, aligned_seqs)
 }
 
 fn parse_fasta_str(input: &str) -> (Vec<RawSeq>, Vec<(String, Vec<u8>)>) {

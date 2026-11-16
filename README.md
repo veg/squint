@@ -162,11 +162,27 @@ Indexed `squint subset --region` queries on `.hdb` archives complete in **`34.45
 
 ---
 
+## Interactive WebAssembly Workbench (`docs/`)
+
+SQUINT includes a 100% client-side Rust + WebAssembly web application under [`docs/`](docs/index.html) designed for static GitHub Pages deployment via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) (see [`WEB_APP_UI_UX_SPEC.md`](WEB_APP_UI_UX_SPEC.md)). All sequence parsing (`FASTA`, `NEXUS`, `PHYLIP`, `.hnex`), Fixed-Share $M_0$ complexity auditing, component separation, codon frameshift repair, multi-scale alignment visualization, and surgical archive subsetting execute locally inside a dedicated Web Worker (`docs/worker.js`).
+
+```bash
+# Preview the static WebAssembly workbench locally
+python3 -m http.server -d docs 8080
+
+# Rebuild the WebAssembly package into docs/pkg/ (requires rustup wasm32-unknown-unknown + wasm-pack)
+wasm-pack build --target web --release --no-pack --out-dir docs/pkg
+```
+
+---
+
 ## Repository Structure
 
 ```text
 .
 ├── Cargo.toml                  # Crate manifest & release optimization profile
+├── WEB_APP_UI_UX_SPEC.md       # UI/UX design specification for the browser workbench
+├── docs/                       # Static GitHub Pages WebAssembly app (index.html, worker.js, pkg/, examples/)
 ├── src/
 │   ├── alphabet.rs             # Protein / sense-codon / DNA alphabets & biophysical tables
 │   ├── mdl.rs                  # Elias-Rissanen integer codes, KT & Dirichlet-Multinomial encoders
@@ -174,7 +190,7 @@ Indexed `squint subset --region` queries on `.hdb` archives complete in **`34.45
 │   ├── transducer.rs           # 5-state Kraft-tight Forward-Backward, chaining, & frameshift repair
 │   ├── multiseq.rs             # Progressive multi-scale profile aligner, scale labeling & LOO refine
 │   ├── storage.rs              # .hnex / .hdb (libsqlite3 FFI) / FASTA archives & indexed subsetting
-│   ├── lib.rs                  # Public library exports & 30 deterministic unit/integration tests
+│   ├── lib.rs                  # Public library exports, WASM bindings & 31 unit/integration tests
 │   └── main.rs                 # CLI entrypoint (align, convert, subset, inspect)
 └── benchmarks/                 # Self-contained benchmark harnesses, fixtures, CSV/JSON summaries, plots
 ```

@@ -2438,7 +2438,10 @@ pub fn prewarm_path_partitions_for_cohort(
     regimes: &[TransducerRegime],
     prior_mean_len: f64,
 ) {
+    #[cfg(not(target_arch = "wasm32"))]
     use rayon::prelude::*;
+    #[cfg(target_arch = "wasm32")]
+    use crate::wasm_rayon_shim::*;
 
     if let Some(&max_ly) = seq_lens.iter().max() {
         COHORT_MAX_LY_HINT.fetch_max(max_ly, Ordering::Relaxed);

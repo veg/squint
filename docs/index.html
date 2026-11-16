@@ -1834,7 +1834,7 @@
             </select>
 
             <label id="lblTranslateCodons" style="display:none; align-items:center; gap:4px; font-size:12px; font-weight:600; color:var(--ink-secondary); cursor:pointer;">
-              <input type="checkbox" id="chkTranslateCodons" onchange="renderStage2Canvases()" /> Translate Codons (AA)
+              <input type="checkbox" id="chkTranslateCodons" onchange="onToggleTranslateCodons()" /> Translate Codons (AA)
             </label>
 
             <label style="display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:600; color:var(--ink-secondary); cursor:pointer;" title="Render '-' for clade-internal indels and '.' for horizon non-homologous gaps">
@@ -2398,6 +2398,8 @@
       G: { bg: '#FEF3C7', fg: '#78350F', cls: 'Special' },
       P: { bg: '#FEF3C7', fg: '#78350F', cls: 'Special' },
       C: { bg: '#FEF3C7', fg: '#78350F', cls: 'Special' },
+      X: { bg: '#F3F2EE', fg: '#57534E', cls: 'Ambiguous' },
+      '*': { bg: '#FEE2E2', fg: '#991B1B', cls: 'Stop (*)' },
     };
 
     const NT_COLORS = {
@@ -2418,6 +2420,34 @@
       TGT:'C', TGC:'C', TGA:'*', TGG:'W', CGT:'R', CGC:'R', CGA:'R', CGG:'R',
       AGT:'S', AGC:'S', AGA:'R', AGG:'R', GGT:'G', GGC:'G', GGA:'G', GGG:'G',
     };
+
+    const IUPAC_NT_BASES = {
+      A: ['A'], C: ['C'], G: ['G'], T: ['T'],
+      R: ['A', 'G'], Y: ['C', 'T'], S: ['G', 'C'], W: ['A', 'T'],
+      K: ['G', 'T'], M: ['A', 'C'],
+      B: ['C', 'G', 'T'], D: ['A', 'G', 'T'], H: ['A', 'C', 'T'], V: ['A', 'C', 'G'],
+      N: ['A', 'C', 'G', 'T'], '?': ['A', 'C', 'G', 'T'],
+    };
+
+    function translateCodonToken(tok) {
+      const c = String(tok || '').trim().toUpperCase().replace(/U/g, 'T');
+      if (c.length !== 3) return 'X';
+      if (GENETIC_CODE[c]) return GENETIC_CODE[c];
+      const b0 = IUPAC_NT_BASES[c[0]], b1 = IUPAC_NT_BASES[c[1]], b2 = IUPAC_NT_BASES[c[2]];
+      if (!b0 || !b1 || !b2) return 'X';
+      let aa = null;
+      for (const n0 of b0) {
+        for (const n1 of b1) {
+          for (const n2 of b2) {
+            const cur = GENETIC_CODE[n0 + n1 + n2];
+            if (!cur) return 'X';
+            if (aa === null) aa = cur;
+            else if (cur !== aa) return 'X';
+          }
+        }
+      }
+      return aa || 'X';
+    }
 
     const CURATED_COHORTS = [
       {
@@ -3726,6 +3756,7 @@
       return { x: (sx - treeCam.panX) / treeCam.zoom, y: (sy - treeCam.panY) / treeCam.zoom };
     }
 
+    window.renderTreeCanvas = renderTreeCanvas;
     function renderTreeCanvas() {
       const canvas = document.getElementById('treeCanvas');
       const vp = document.getElementById('treeViewport');
@@ -4146,6 +4177,23 @@
       }
     };
 
+    function msaGutterW(vpWidth) {
+      return Math.min(200, Math.max(125, Math.round((vpWidth || 900) * 0.22)));
+    }
+
+    window.onToggleTranslateCodons = function() {
+      const mode = alignPayload?.ledger?.mode || 'Dna';
+      const showAA = Boolean(document.getElementById('chkTranslateCodons')?.checked);
+      if (mode === 'Codon') {
+        if (showAA) {
+          msaCam.colW = Math.max(14, Math.min(26, Math.round(msaCam.colW * (20 / 34))));
+        } else {
+          msaCam.colW = Math.max(26, Math.min(54, Math.round(msaCam.colW * (34 / 20))));
+        }
+      }
+      renderStage2Canvases();
+    };
+
     window.fitMsaView = function(redraw = true) {
       const mode = alignPayload?.ledger?.mode || 'Dna';
       const showAA = Boolean(document.getElementById('chkTranslateCodons')?.checked);
@@ -4169,7 +4217,7 @@
         const targetCol = Math.max(0, Math.min(comp.num_columns - 1, num - 1));
         const visPos = visibleColIndices.indexOf(targetCol);
         const vp = document.getElementById('msaViewport');
-        const gutterW = 190;
+        const gutterW = msaGutterW(vp?.clientWidth);
         const viewCols = Math.max(1, ((vp?.clientWidth || 800) - gutterW) / msaCam.colW);
         if (visPos >= 0) {
           msaCam.scrollX = Math.max(0, visPos - viewCols * 0.25);
@@ -4227,6 +4275,7 @@
       renderStage2Canvases();
     }
 
+    window.renderStage2Canvases = renderStage2Canvases;
     function renderStage2Canvases() {
       if (activeView !== 'stage2') return;
       renderScaleBarcodeCanvas();
@@ -4281,7 +4330,8 @@
 
       // Viewport lens indicator
       const vp = document.getElementById('msaViewport');
-      const visColsOnScreen = Math.max(1, ((vp?.clientWidth || 800) - 190) / msaCam.colW);
+      const gutterW = msaGutterW(vp?.clientWidth);
+      const visColsOnScreen = Math.max(1, ((vp?.clientWidth || 800) - gutterW) / msaCam.colW);
       const startVis = Math.max(0, Math.floor(msaCam.scrollX));
       const endVis = Math.min(visibleColIndices.length - 1, Math.floor(startVis + visColsOnScreen));
       const cLo = visibleColIndices[startVis] ?? 0;
@@ -4321,10 +4371,10 @@
         ? alignPayload.horizon_fasta_by_comp[activeCompIdx]
         : comp.aligned_fasta;
 
-      const gutterW = Math.min(200, Math.max(125, Math.round(w * 0.22)));
+      const gutterW = msaGutterW(w);
       const headerH = 38;
       const rowH = msaCam.rowH;
-      const colW = (mode === 'Codon' && showAA && msaCam.colW > 28) ? 20 : msaCam.colW;
+      const colW = msaCam.colW;
 
       const maxScrollX = Math.max(0, visibleColIndices.length - Math.floor((w - gutterW) / colW));
       const maxScrollY = Math.max(0, rows.length - Math.floor((h - headerH) / rowH));
@@ -4371,7 +4421,7 @@
           const seqStr = rows[r][1] || '';
           const tok = seqStr.slice(cIdx * step, (cIdx + 1) * step).toUpperCase();
           const isGap = /^[-]+$/.test(tok);
-          const isHoriz = /^[.]+$/.test(tok);
+          const isHoriz = /^[.~]+$/.test(tok);
 
           if (isHoriz) {
             ctx.fillStyle = '#F3F0FB';
@@ -4395,7 +4445,7 @@
           let disp = tok;
           let bg = '#FFFFFF', fg = '#141413';
           if (mode === 'Codon') {
-            const aa = GENETIC_CODE[tok.replace(/U/g, 'T')] || 'X';
+            const aa = translateCodonToken(tok);
             if (showAA) disp = aa;
             if (colorMode === 'biophys') {
               const sty = AA_BIOPHYS_COLORS[aa];
@@ -4546,7 +4596,7 @@
 
       const rowLines = comp.aligned_fasta.map(([id, s]) => {
         const sl = s.slice(colIdx * step, (colIdx + 1) * step);
-        const aa = (mode === 'Codon' && !/^[-.?]+$/.test(sl)) ? ` (${GENETIC_CODE[sl.toUpperCase().replace(/U/g, 'T')] || '?'})` : '';
+        const aa = (mode === 'Codon' && !/^[-.?~]+$/.test(sl)) ? ` (${translateCodonToken(sl)})` : '';
         return `<tr><td class="mono" style="font-weight:600;">${escapeHtml(id)}</td><td class="mono">${escapeHtml(sl)}${escapeHtml(aa)}</td></tr>`;
       }).join('');
 
@@ -4605,22 +4655,37 @@
             return;
           }
           const lx = ev.clientX - rect.left, ly = ev.clientY - rect.top;
-          const gutterW = Math.min(200, Math.max(125, Math.round(rect.width * 0.22)));
+          const gutterW = msaGutterW(rect.width);
           const mode = alignPayload?.ledger?.mode || 'Dna';
-          const showAA = mode === 'Codon' && Boolean(document.getElementById('chkTranslateCodons')?.checked);
-          const colW = (mode === 'Codon' && showAA && msaCam.colW > 28) ? 20 : msaCam.colW;
+          const step = mode === 'Codon' ? 3 : 1;
+          const colW = msaCam.colW;
           if (lx < gutterW) { if (msaTip) msaTip.style.display = 'none'; return; }
           const vCol = Math.floor(msaCam.scrollX + (lx - gutterW) / colW);
           const rIdx = Math.floor(msaCam.scrollY + (ly - 38) / msaCam.rowH);
           if (vCol >= 0 && vCol < visibleColIndices.length && msaTip) {
             const cIdx = visibleColIndices[vCol];
             const colMeta = comp.columns[cIdx];
-            const seqName = (rIdx >= 0 && rIdx < comp.sequence_ids.length) ? comp.sequence_ids[rIdx] : 'Column Header';
+            const useHorizonDots = Boolean(document.getElementById('chkHorizonDots')?.checked);
+            const tipRows = (useHorizonDots && alignPayload.horizon_fasta_by_comp?.[activeCompIdx])
+              ? alignPayload.horizon_fasta_by_comp[activeCompIdx]
+              : comp.aligned_fasta;
+            let rowLabel = 'Column Header';
+            if (rIdx >= 0 && rIdx < tipRows.length) {
+              const seqName = tipRows[rIdx][0] || comp.sequence_ids[rIdx] || '';
+              const tok = (tipRows[rIdx][1] || '').slice(cIdx * step, (cIdx + 1) * step).toUpperCase();
+              let tokDisp = tok;
+              if (mode === 'Codon' && tok.length === 3 && !/^[-.~]+$/.test(tok)) {
+                tokDisp = `${tok} → ${translateCodonToken(tok)}`;
+              } else if (/^[.~]+$/.test(tok)) {
+                tokDisp = `${tok} (horizon)`;
+              }
+              rowLabel = tok ? `${seqName} • ${tokDisp}` : seqName;
+            }
             msaTip.style.display = 'block';
             msaTip.style.left = `${Math.min(rect.width - 260, lx + 14)}px`;
             msaTip.style.top = `${Math.max(8, ly - 10)}px`;
             msaTip.innerHTML = `<div class="mono" style="font-weight:700;">Col ${cIdx + 1} (${escapeHtml(colMeta?.scale || '')})</div>
-              <div style="opacity:0.9;">${escapeHtml(seqName)}</div>
+              <div style="opacity:0.9;">${escapeHtml(rowLabel)}</div>
               <div class="mono">P_fine=${(colMeta?.mean_fine_posterior ?? 1).toFixed(4)} • present=${colMeta?.num_present ?? 0}/${comp.sequence_ids.length}</div>`;
           } else if (msaTip) {
             msaTip.style.display = 'none';
@@ -4635,10 +4700,8 @@
             if (!wasMoved && ev.target === msaCanvas) {
               const rect = msaCanvas.getBoundingClientRect();
               const lx = ev.clientX - rect.left;
-              const gutterW = Math.min(200, Math.max(125, Math.round(rect.width * 0.22)));
-              const mode = alignPayload?.ledger?.mode || 'Dna';
-              const showAA = mode === 'Codon' && Boolean(document.getElementById('chkTranslateCodons')?.checked);
-              const colW = (mode === 'Codon' && showAA && msaCam.colW > 28) ? 20 : msaCam.colW;
+              const gutterW = msaGutterW(rect.width);
+              const colW = msaCam.colW;
               if (lx >= gutterW) {
                 const vCol = Math.floor(msaCam.scrollX + (lx - gutterW) / colW);
                 if (vCol >= 0 && vCol < visibleColIndices.length) {
@@ -4660,7 +4723,7 @@
           const visPos = visibleColIndices.findIndex(c => c >= targetCol);
           if (visPos >= 0) {
             const vp = document.getElementById('msaViewport');
-            const gutterW = 190;
+            const gutterW = msaGutterW(vp?.clientWidth);
             const viewCols = Math.max(1, ((vp?.clientWidth || 800) - gutterW) / msaCam.colW);
             msaCam.scrollX = Math.max(0, visPos - viewCols * 0.5);
             renderStage2Canvases();
